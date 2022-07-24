@@ -1,0 +1,15 @@
+service:
+  name: test
+  port: 8080
+#  middlewares: recovery,logger,secure,nocache,cors,dump # 加载的 gin 中间件列表，多个中间件，逗号(,)隔开
+  middlewares:
+
+mysql:
+  addr: 127.0.0.1:3306
+  user: root
+  pass: s0kewK7Ph#0AE9IX
+  database: blog
+  max-idle-connections: 100
+  max-open-connections: 100 # MySQL 最大打开的连接数，默认 100
+  max-connection-life-time: 10s # 空闲连接最大存活时间，默认 10s
+  log-level: 4 # GORM log level, 1: silent, 2:error, 3:warn, 4:info

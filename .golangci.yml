@@ -1,0 +1,42 @@
+run:
+  tests: false
+  skip-dirs:
+    - vendor
+  timeout: 600s
+  go: '1.18'
+  output:
+    format: colored-line-number
+    print-issued-lines: false
+    print-linter-name: false
+    # Default: true
+    uniq-by-line: false
+    path-prefix: ""
+    # Sort results by: filepath, line and column.
+    sort-results: false
+linters:
+  # Disable all linters.
+  # Default: false
+  disable-all: true
+  enable:
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - containedctx
+    - contextcheck
+    - cyclop
+
+linters-settings:
+  cyclop:
+    # The maximal code complexity to report.
+    # Default: 10
+    max-complexity: 100
+    # The maximal average package complexity.
+    # If it's higher than 0.0 (float) the check is enabled
+    # Default: 0.0
+    package-average: 3.0
+    # Should ignore tests.
+    # Default: false
+    skip-tests: false
+  dupl:
+    ## tokens count to trigger issue, 150 by default
+    threshold: 100
