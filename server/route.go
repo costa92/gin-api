@@ -1,9 +1,10 @@
 package server
 
 import (
+	"github.com/gin-gonic/gin"
+
 	"github.com/costa92/go-web/controller/index"
 	"github.com/costa92/go-web/internal/db"
-	"github.com/gin-gonic/gin"
 )
 
 func initRoute(e *gin.Engine) {

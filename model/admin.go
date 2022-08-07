@@ -3,8 +3,9 @@ package model
 import (
 	"time"
 
-	"github.com/costa92/go-web/internal/pkg/meta"
 	"gorm.io/gorm"
+
+	"github.com/costa92/go-web/internal/pkg/meta"
 )
 
 const TableNameAdmin = "admin"

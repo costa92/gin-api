@@ -1,9 +1,10 @@
 package db
 
 import (
+	"gorm.io/gorm"
+
 	"github.com/costa92/go-web/internal/option"
 	"github.com/costa92/go-web/internal/pkg/db"
-	"gorm.io/gorm"
 )
 
 func NewClient(config *option.MySQLOptions) (*gorm.DB, error) {

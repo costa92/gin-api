@@ -1,8 +1,9 @@
 package db
 
 import (
-	"github.com/costa92/go-web/config"
 	"gorm.io/gorm"
+
+	"github.com/costa92/go-web/config"
 )
 
 var (

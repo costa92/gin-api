@@ -1,10 +1,10 @@
 package config
 
 import (
-	"fmt"
+	"github.com/rs/zerolog/log"
+	"github.com/spf13/viper"
 
 	"github.com/costa92/go-web/internal/option"
-	"github.com/spf13/viper"
 )
 
 type Config struct {
@@ -24,6 +24,6 @@ func NewConfig() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(c.ServerConf)
+	log.Print(c.ServerConf)
 	return &c, nil
 }

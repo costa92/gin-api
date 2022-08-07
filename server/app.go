@@ -8,12 +8,13 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/gin-gonic/gin"
+	"golang.org/x/sync/errgroup"
+
 	"github.com/costa92/go-web/config"
 	"github.com/costa92/go-web/internal/metrics"
 	"github.com/costa92/go-web/internal/pkg/middleware"
 	"github.com/costa92/go-web/internal/pkg/util"
-	"github.com/gin-gonic/gin"
-	"golang.org/x/sync/errgroup"
 )
 
 type Server struct {

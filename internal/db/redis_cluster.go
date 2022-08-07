@@ -9,10 +9,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/costa92/go-web/internal/errors"
 	redis "github.com/go-redis/redis/v7"
 	uuid "github.com/satori/go.uuid"
 	"github.com/spf13/viper"
+
+	"github.com/costa92/go-web/internal/errors"
 )
 
 type Config struct {

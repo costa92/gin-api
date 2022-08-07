@@ -3,14 +3,15 @@ package index
 import (
 	"fmt"
 
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
+
 	"github.com/costa92/go-web/internal/errors"
 	"github.com/costa92/go-web/internal/pkg/code"
 	"github.com/costa92/go-web/internal/pkg/meta"
 	"github.com/costa92/go-web/internal/pkg/util"
 	"github.com/costa92/go-web/internal/pkg/util/gormutil"
 	"github.com/costa92/go-web/model"
-	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 )
 
 type Index struct {
@@ -85,4 +86,8 @@ func (api *Index) Detail(ctx *gin.Context) {
 		return
 	}
 	util.WriteResponse(ctx, nil, "ddd")
+}
+
+func (api *Index) Del(ctx *gin.Context) {
+	fmt.Println(111)
 }

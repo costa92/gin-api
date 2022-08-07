@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/costa92/go-web/internal/errors"
 	"github.com/gin-gonic/gin"
+
+	"github.com/costa92/go-web/internal/errors"
 )
 
 type ErrResponse struct {

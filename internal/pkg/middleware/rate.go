@@ -4,10 +4,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/costa92/go-web/internal/errors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 	"github.com/go-redis/redis_rate/v9"
+
+	"github.com/costa92/go-web/internal/errors"
 )
 
 // ErrLimitExceeded defines Limit exceeded error.
