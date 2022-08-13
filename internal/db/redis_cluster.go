@@ -9,7 +9,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	redis "github.com/go-redis/redis/v7"
+	"github.com/go-redis/redis/v7"
 	uuid "github.com/satori/go.uuid"
 	"github.com/spf13/viper"
 

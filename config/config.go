@@ -24,6 +24,6 @@ func NewConfig() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Print(c.ServerConf)
+	log.Info().Msgf("service config:%s", c.ServerConf)
 	return &c, nil
 }

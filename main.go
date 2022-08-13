@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
 	"github.com/costa92/go-web/cmd"
@@ -10,7 +11,9 @@ import (
 )
 
 func main() {
-	log.Print("start go-web server")
+	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
+	log.Info().Msg("start service")
+
 	cmd.Execute()
 	cfg, _ := config.NewConfig()
 	// binding.Validator = new(validator.DefaultValidator)

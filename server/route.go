@@ -2,6 +2,7 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog/log"
 
 	"github.com/costa92/go-web/controller/index"
 	"github.com/costa92/go-web/internal/db"
@@ -16,6 +17,7 @@ func initMiddleware(e *gin.Engine) {
 }
 
 func initController(g *gin.Engine) *gin.Engine {
+	log.Info().Msg("init controller")
 	index := index.NewIndex(db.MysqlStorage)
 	// idx := g.Group("/index", middleware.RateLimit())
 	idx := g.Group("/")

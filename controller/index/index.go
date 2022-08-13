@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 
 	"github.com/costa92/go-web/internal/errors"
@@ -80,7 +81,6 @@ type RequestDetail struct {
 
 func (api *Index) Detail(ctx *gin.Context) {
 	var req RequestDetail
-	fmt.Println(ctx)
 	if err := ctx.ShouldBind(&req); err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrValidation, err.Error()), "参数错误")
 		return
@@ -89,5 +89,5 @@ func (api *Index) Detail(ctx *gin.Context) {
 }
 
 func (api *Index) Del(ctx *gin.Context) {
-	fmt.Println(111)
+	log.Info().Msg("del")
 }
