@@ -3,6 +3,7 @@ module github.com/costa92/go-web
 go 1.18
 
 require (
+	github.com/costa92/errors v0.0.0-20220820053303-1b353c6b235a
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-playground/validator/v10 v10.10.0

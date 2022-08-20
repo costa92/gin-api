@@ -1,10 +1,11 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog"
 	"io"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog"
 )
 
 const TimeFieldFormat = "2006-01-02 15:04:00"
@@ -17,10 +18,10 @@ func LoggerWithWriter(out io.Writer) gin.HandlerFunc {
 	// 时间根式化
 	zerolog.TimeFieldFormat = TimeFieldFormat
 	zerolog.TimestampFunc = func() time.Time {
-		// 时区
-		return time.Now().In(time.Local)
+		return time.Now().In(time.Local) // 时区
 	}
 	log := zerolog.New(out).With().Timestamp().Logger()
+
 	return func(c *gin.Context) {
 		start := time.Now()
 		path := c.Request.URL.Path

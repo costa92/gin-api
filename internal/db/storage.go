@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"hash"
 
-	"github.com/costa92/go-web/internal/errors"
+	"github.com/costa92/errors"
 	"github.com/costa92/go-web/third_party/forked/murmur3"
 )
 

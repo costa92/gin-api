@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/costa92/go-web/internal/errors"
+	"github.com/costa92/errors"
 )
 
 type ErrResponse struct {

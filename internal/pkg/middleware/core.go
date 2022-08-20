@@ -19,7 +19,7 @@ func Cors() gin.HandlerFunc {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 		AllowOriginFunc: func(origin string) bool {
-			return origin == "https://github.com"
+			return origin == "https://github.com/costa92"
 		},
 		MaxAge: maxAge * time.Hour,
 	})

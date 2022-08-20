@@ -13,7 +13,7 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"github.com/spf13/viper"
 
-	"github.com/costa92/go-web/internal/errors"
+	"github.com/costa92/errors"
 )
 
 type Config struct {

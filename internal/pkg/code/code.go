@@ -5,7 +5,7 @@ import (
 
 	"github.com/novalagung/gubrak"
 
-	"github.com/costa92/go-web/internal/errors"
+	"github.com/costa92/errors"
 )
 
 // ErrCode implements `github.com/marmotedu/errors`.Coder interface.
