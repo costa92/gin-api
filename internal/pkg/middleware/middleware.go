@@ -9,5 +9,6 @@ func defaultMiddlewares() map[string]gin.HandlerFunc {
 		"recovery":  gin.Recovery(),
 		"rateLimit": RateLimit(),
 		"cors":      Cors(),
+		"logger":    Logger(),
 	}
 }

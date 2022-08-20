@@ -32,8 +32,8 @@ func NewServer(conf *config.ServerConf) *Server {
 
 // 预运行
 func (sr *Server) preRun() *gin.Engine {
-	gin.DisableConsoleColor()
-	e := gin.Default()
+	gin.ForceConsoleColor()
+	e := gin.New()
 	// 初始化中间件
 	sr.InstallMiddlewares(e)
 	sr.InstallAPIs(e)
@@ -62,7 +62,6 @@ func (sr *Server) InstallAPIs(e *gin.Engine) {
 		}
 		util.WriteResponse(c, nil, data)
 	})
-
 	metrics.Metrics(e)
 }
 
