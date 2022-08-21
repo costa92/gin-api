@@ -3,11 +3,11 @@ package index
 import (
 	"fmt"
 
+	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 
-	"github.com/costa92/errors"
 	"github.com/costa92/go-web/internal/pkg/code"
 	"github.com/costa92/go-web/internal/pkg/meta"
 	"github.com/costa92/go-web/internal/pkg/util"

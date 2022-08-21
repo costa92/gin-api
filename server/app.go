@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog/log"
 	"golang.org/x/sync/errgroup"
 
 	"github.com/costa92/go-web/config"
+	"github.com/costa92/go-web/internal/logger"
 	"github.com/costa92/go-web/internal/metrics"
 	"github.com/costa92/go-web/internal/pkg/middleware"
 	"github.com/costa92/go-web/internal/pkg/util"
@@ -77,10 +77,10 @@ func (sr *Server) Run() error {
 	eg.Go(func() error {
 		// 服务连接
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Error().Msg("listen" + err.Error())
+			logger.Error("listen:" + err.Error())
 			return err
 		}
-		log.Fatal().Str("addr", srv.Addr).Msg("service start fail")
+		logger.Errorf("service start fail addr:s%", srv.Addr)
 		return nil
 	})
 
@@ -91,14 +91,14 @@ func (sr *Server) Run() error {
 
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	log.Info().Msg("Shutdown Server ...")
+	logger.Infow("Shutdown Server ...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := srv.Shutdown(ctx); err != nil {
-		log.Error().Msgf("Server Shutdown:", err)
+		logger.Errorf("Server Shutdown:%v", err)
 	}
 
-	log.Info().Msg("Server exiting")
+	logger.Info("Server exiting")
 	return nil
 }
 

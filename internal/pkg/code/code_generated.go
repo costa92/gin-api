@@ -1,6 +1,6 @@
 package code
 
-// init register error codes defines in this source code to `github.com/marmotedu/errors`
+// init register error codes defines in this source code to `github.com/costa92/errors`
 func init() {
 	register(ErrSuccess, 200, "OK")
 	register(ErrUnknown, 500, "Internal server error")

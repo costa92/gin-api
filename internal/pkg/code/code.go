@@ -3,12 +3,11 @@ package code
 import (
 	"net/http"
 
-	"github.com/novalagung/gubrak"
-
 	"github.com/costa92/errors"
+	"github.com/novalagung/gubrak"
 )
 
-// ErrCode implements `github.com/marmotedu/errors`.Coder interface.
+// ErrCode implements `github.com/costa92/errors`.Coder interface.
 type ErrCode struct {
 	// C refers to the code of the ErrCode.
 	C int
@@ -57,18 +56,15 @@ func register(code, httpStatus int, message string, refs ...string) {
 	if !found {
 		panic("http code not in `200, 400, 401, 403, 404, 500`")
 	}
-
 	var reference string
 	if len(refs) > 0 {
 		reference = refs[0]
 	}
-
 	coder := &ErrCode{
 		C:    code,
 		HTTP: httpStatus,
 		Ext:  message,
 		Ref:  reference,
 	}
-
 	errors.MustRegister(coder)
 }
