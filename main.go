@@ -1,19 +1,19 @@
 package main
 
 import (
-	"github.com/rs/zerolog/log"
-
 	"github.com/costa92/go-web/cmd"
 	"github.com/costa92/go-web/config"
 	"github.com/costa92/go-web/internal/db"
+	"github.com/costa92/go-web/internal/logger"
 	"github.com/costa92/go-web/server"
 )
 
 func main() {
-	log.Info().Msg("start service")
 	cmd.Execute()
 	cfg, _ := config.NewConfig()
-	// binding.Validator = new(validator.DefaultValidator)
+	// 初始化日志
+	logger.Init(cfg.Logger)
+	// 初始化数据库
 	db.InitDB(cfg)
 	app := server.NewServer(cfg.ServerConf)
 	err := app.Run()

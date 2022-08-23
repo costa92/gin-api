@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/rs/zerolog/log"
+	"github.com/costa92/go-web/internal/logger"
 	"github.com/spf13/viper"
 
 	"github.com/costa92/go-web/internal/option"
@@ -10,6 +10,7 @@ import (
 type Config struct {
 	ServerConf  *ServerConf          `mapstructure:"service"`
 	MysqlConfig *option.MySQLOptions `mapstructure:"mysql"`
+	Logger      *logger.Options      `mapstructure:"log"`
 }
 
 type ServerConf struct {
@@ -24,6 +25,5 @@ func NewConfig() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Info().Msgf("service config:%s", c.ServerConf)
 	return &c, nil
 }

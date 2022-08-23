@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/logger/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/encoder.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/example/context/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/example/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/example/vlevel/v_level.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/impl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/klog/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/level.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/logs_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/types.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/logger/wrap.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/auth/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/index/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/index/index.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/redis_cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/redis_cluster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/code/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/code/code_generated.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/code/code_generated.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/middleware/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/rate.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/middleware/rate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/util/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,5 +146,16 @@
       </map>
     </environment>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/app.go</url>
+          <line>83</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
