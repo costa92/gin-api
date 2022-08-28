@@ -16,6 +16,7 @@ type Config struct {
 type ServerConf struct {
 	Name        string   `json:"name" mapstructure:"name"`
 	Port        string   `json:"port" mapstructure:"port"`
+	Mode        string   `json:"mode" mapstructure:"mode"`
 	Middlewares []string `json:"middlewares" mapstructure:"middlewares"`
 }
 

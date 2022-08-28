@@ -13,6 +13,7 @@ func main() {
 	cfg, _ := config.NewConfig()
 	// 初始化日志
 	logger.Init(cfg.Logger)
+	defer logger.Flush()
 	// 初始化数据库
 	db.InitDB(cfg)
 	app := server.NewServer(cfg.ServerConf)

@@ -1,6 +1,8 @@
 service:
   name: test
   port: 8080
+# debug, release test
+  mode: debug
 #  middlewares: recovery,logger,secure,nocache,cors,dump # 加载的 gin 中间件列表，多个中间件，逗号(,)隔开
   middlewares: logger
 

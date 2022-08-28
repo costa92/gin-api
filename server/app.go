@@ -33,6 +33,13 @@ func NewServer(conf *config.ServerConf) *Server {
 // 预运行
 func (sr *Server) preRun() *gin.Engine {
 	gin.ForceConsoleColor()
+	gin.SetMode(sr.Conf.Mode)
+
+	// 处理日志
+	gin.DebugPrintRouteFunc = func(httpMethod, absolutePath, handlerName string, nuHandlers int) {
+		logger.Infow("%-6s %-s --> %s (%d handlers)", httpMethod, absolutePath, handlerName, nuHandlers)
+	}
+
 	e := gin.New()
 	// 初始化中间件
 	sr.InstallMiddlewares(e)

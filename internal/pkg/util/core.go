@@ -1,7 +1,7 @@
 package util
 
 import (
-	"fmt"
+	"github.com/costa92/go-web/internal/logger"
 	"net/http"
 
 	"github.com/costa92/errors"
@@ -24,7 +24,7 @@ type SuccessResponse struct {
 
 func WriteResponse(c *gin.Context, err error, data interface{}) {
 	if err != nil {
-		fmt.Printf("%#+v", err)
+		logger.Errorf("%#+v", err)
 		coder := errors.ParseCoder(err)
 		c.JSON(coder.HTTPStatus(), ErrResponse{
 			Code:      coder.Code(),
