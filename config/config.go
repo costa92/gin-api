@@ -1,9 +1,9 @@
 package config
 
 import (
-	"github.com/costa92/go-web/internal/logger"
 	"github.com/spf13/viper"
 
+	"github.com/costa92/go-web/internal/logger"
 	"github.com/costa92/go-web/internal/option"
 )
 

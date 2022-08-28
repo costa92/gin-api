@@ -1,11 +1,12 @@
 package middleware
 
 import (
-	"github.com/costa92/go-web/internal/logger"
 	"io"
 	"time"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/costa92/go-web/internal/logger"
 )
 
 const TimeFieldFormat = "2006-01-02 15:04:00"

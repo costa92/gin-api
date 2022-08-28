@@ -1,11 +1,12 @@
 package util
 
 import (
-	"github.com/costa92/go-web/internal/logger"
 	"net/http"
 
 	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
+
+	"github.com/costa92/go-web/internal/logger"
 )
 
 type ErrResponse struct {

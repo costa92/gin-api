@@ -37,7 +37,8 @@ func (sr *Server) preRun() *gin.Engine {
 
 	// 处理日志
 	gin.DebugPrintRouteFunc = func(httpMethod, absolutePath, handlerName string, nuHandlers int) {
-		logger.Infow("%-6s %-s --> %s (%d handlers)", httpMethod, absolutePath, handlerName, nuHandlers)
+		logger.Infow("DebugPrintRouteFunc ", "httpMethod", httpMethod, "absolutePath",
+			absolutePath, "handlerName", handlerName, "nuHandlers", nuHandlers)
 	}
 
 	e := gin.New()

@@ -23,6 +23,20 @@ type Logger interface {
 	InfoLogger
 	Error(msg string, fields ...Field)
 	Errorf(format string, v ...interface{})
+	Errorw(msg string, keysAndValues ...interface{})
+	Debug(msg string, fields ...Field)
+	Debugf(format string, v ...interface{})
+	Debugw(msg string, keysAndValues ...interface{})
+	Warn(msg string, fields ...Field)
+	Warnf(format string, v ...interface{})
+	Warnw(msg string, keysAndValues ...interface{})
+	Panic(msg string, fields ...Field)
+	Panicf(format string, v ...interface{})
+	Panicw(msg string, keysAndValues ...interface{})
+	Fatal(msg string, fields ...Field)
+	Fatalf(format string, v ...interface{})
+	Fatalw(msg string, keysAndValues ...interface{})
+
 	V(level Level) InfoLogger
 	Write(p []byte) (n int, err error)
 	WithValues(keysAndValues ...interface{}) Logger
@@ -276,4 +290,17 @@ func CheckIntLevel(level int32) bool {
 	checkEntry := std.zapLogger.Check(lvl, "")
 
 	return checkEntry != nil
+}
+
+func (l *zapLogger) L(ctx context.Context) *zapLogger {
+	lg := l.clone()
+	if requestID := ctx.Value(KeyRequestID); requestID != nil {
+		lg.zapLogger = lg.zapLogger.With(zap.Any(KeyRequestID, requestID))
+	}
+	return lg
+}
+
+func (l *zapLogger) clone() *zapLogger {
+	copy := *l
+	return &copy
 }
