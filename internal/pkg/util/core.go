@@ -39,4 +39,5 @@ func WriteResponse(c *gin.Context, err error, data interface{}) {
 		Message: "Success",
 		Result:  data,
 	})
+	return
 }
