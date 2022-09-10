@@ -7,7 +7,7 @@ service:
   middlewares: logger
 
 mysql:
-  addr: 127.0.0.1:3306
+  addr: 192.168.1.103:3306
   user: root
   pass: s0kewK7Ph#0AE9IX
   database: blog

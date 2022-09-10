@@ -1,9 +1,9 @@
 package cmd
 
 import (
+	"github.com/costa92/go-web/internal/logger"
 	"os"
 
-	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -27,14 +27,11 @@ func initConfig() {
 	if cfgFile != "" {
 		viper.SetConfigFile(cfgFile)
 	} else {
-		home, err := homedir.Dir()
-		if err != nil {
-			os.Exit(0)
-		}
-		viper.AddConfigPath(home)
-		viper.SetConfigFile(".cobra")
+		viper.AddConfigPath(".")
+		viper.SetConfigFile("config.yaml")
 	}
 	if err := viper.ReadInConfig(); err != nil {
+		logger.Errorw("viper ReadInConfig", "err", err)
 		os.Exit(0)
 	}
 }
