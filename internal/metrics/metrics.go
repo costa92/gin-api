@@ -21,7 +21,6 @@ func Metrics(e *gin.Engine) {
 
 func prometheusHandler() gin.HandlerFunc {
 	h := promhttp.Handler()
-
 	return func(c *gin.Context) {
 		h.ServeHTTP(c.Writer, c.Request)
 	}

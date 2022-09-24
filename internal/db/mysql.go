@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/costa92/go-web/internal/option"
-	"github.com/costa92/go-web/internal/pkg/db"
+	"github.com/costa92/go-web/pkg/db"
 )
 
 func NewClient(config *option.MySQLOptions) (*gorm.DB, error) {
@@ -13,7 +13,7 @@ func NewClient(config *option.MySQLOptions) (*gorm.DB, error) {
 		Username:              config.User,
 		Password:              config.Pass,
 		Database:              config.Database,
-		MaxConnectionLifeTime: config.MaxConnectionLeftTime,
+		MaxConnectionLifeTime: config.MaxConnectionLifeTime,
 		MaxIdleConnections:    config.MaxIdleConnections,
 		MaxOpenConnections:    config.MaxOpenConnections,
 	}

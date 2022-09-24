@@ -1,24 +1,47 @@
-service:
+server:
   name: test
-  port: 8080
 # debug, release test
   mode: debug
 #  middlewares: recovery,logger,secure,nocache,cors,dump # 加载的 gin 中间件列表，多个中间件，逗号(,)隔开
-  middlewares: logger
+  middlewares: secure,nocache,cors
+
+insecure:
+  bind-address: 0.0.0.0
+  bind-port: 8080
+
+secure:
+  bind-address: 0.0.0.0
+  bind-port: 8443
+  tls:
+    cert-key:
+      cert-file:
+      private-key-file:
 
 mysql:
-  addr: 192.168.1.103:3306
+  addr: 127.0.0.1:3306
   user: root
   pass: s0kewK7Ph#0AE9IX
-  database: blog
+  database: go-web
   max-idle-connections: 100
   max-open-connections: 100 # MySQL 最大打开的连接数，默认 100
   max-connection-life-time: 10s # 空闲连接最大存活时间，默认 10s
   log-level: 4 # GORM log level, 1: silent, 2:error, 3:warn, 4:info
 
+# JWT 配置
+jwt:
+  realm: JWT # jwt 标识
+  key: 12312312 # 服务端密钥
+  timeout: 24h # token 过期时间(小时)
+  max-refresh: 24h # token 更新时间(小时)
+
+redis:
+  host: 127.0.0.1 # redis 地址，默认 127.0.0.1:6379
+  port: 6379 # redis 端口，默认 6379
+
 log:
   level: debug
-  format: json
+  development: true # 是否是开发模式。如果是开发模式，会对DPanicLevel进行堆栈跟踪。
+  format: console # 支持的日志输出格式，目前支持console和json两种。console其实就是text格式。
   enable-color: false
   output-paths: logs/logs.log
   error-output-paths: logs/error.log
