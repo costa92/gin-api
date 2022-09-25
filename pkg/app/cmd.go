@@ -19,8 +19,10 @@ type Command struct {
 }
 type CommandOption func(*Command)
 
+// RunCommandFunc 运行 command func
 type RunCommandFunc func(args []string) error
 
+// NewCommand 新增 command
 func NewCommand(usage, desc string, opts ...CommandOption) *Command {
 	c := &Command{
 		usage: usage,

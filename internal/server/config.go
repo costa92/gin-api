@@ -58,7 +58,7 @@ func NewConfig() *Config {
 		Mode:        gin.ReleaseMode,
 		Middlewares: []string{},
 		Jwt: &JwtInfo{
-			Realm:      "iam jwt",
+			Realm:      "api jwt",
 			Timeout:    1 * time.Hour,
 			MaxRefresh: 1 * time.Hour,
 		},

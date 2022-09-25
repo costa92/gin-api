@@ -20,7 +20,8 @@ func RequestID() gin.HandlerFunc {
 		rid := c.GetHeader(XRequestIDKey)
 
 		if rid == "" {
-			rid = uuid.Must(uuid.NewV4(), nil).String()
+			uid, _ := uuid.NewV4()
+			rid = uuid.Must(uid, nil).String()
 			c.Request.Header.Set(XRequestIDKey, rid)
 			c.Set(XRequestIDKey, rid)
 		}
@@ -37,7 +38,6 @@ func GetLoggerConfig(formatter gin.LogFormatter, output io.Writer, skipPaths []s
 	if formatter == nil {
 		formatter = GetDefaultLogFormatterWithRequestID()
 	}
-
 	return gin.LoggerConfig{
 		Formatter: formatter,
 		Output:    output,

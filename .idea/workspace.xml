@@ -5,104 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/v1/menus/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/menus/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/menus/menus.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/menus/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/roles/roles.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/users/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/users/users.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/auth/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/auth/basic.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/auth/cache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/auth/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/middleware/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/option/insecure_serving_option.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/option/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/option/redis_options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/option/secure_serving.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/option/server_run_option.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/options/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/options/validation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/run.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/server/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/server/genericapiserver.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/menu.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/role.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/app/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/app/cmd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/app/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/app/help.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/app/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/cache/cache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/cache/cache_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/cache/ristretto_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/code/api.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/util/auth/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/util/auth/auth_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/option/grpc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/server/signal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/shutdown/LICENCE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/shutdown/shutdown.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal/posixsignal.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/cmd.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth/auth.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/index/index.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/distribution/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/distribution/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/encoder.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/encoder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/example/context/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/example/context/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/example/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/example/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/example/vlevel/v_level.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/example/vlevel/v_level.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/klog/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/klog/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/level.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/level.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/logrus/hook.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logrus/hook.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/logrus/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logrus/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/logs_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logs_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/options.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/options.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/types.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/wrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/wrap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/metrics/metrics.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/metrics/metrics.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/option/mysql_option.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/option/mysql_option.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/code/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/code/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/code/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/code/code_generated.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/code/code_generated.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/db/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/db/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/redis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/meta/meta.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/meta/meta.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/meta/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/meta/types.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/middleware.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/rate.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/rate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/middleware/requestid.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/requestid.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/scheme/group_version.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/scheme/group_version.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/scheme/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/scheme/interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/fields/fields.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/fields/fields.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/fields/requirements.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/fields/requirements.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/fields/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/fields/selector.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/gormutil/gorm.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/gormutil/gorm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/util/selection/operator.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/selection/operator.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/route.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/db/redis_cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/redis_cluster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/requestid.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/requestid.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/run.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/run.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/server/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/server/genericapiserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/genericapiserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/app/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/app/cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/app/cmd.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,39 +54,40 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
-    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/costalong/code/go/src/github.com/costa92/go-web/model&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "configurable..is.expanded": "false",
+    "configurable.GoLibrariesConfigurable.is.expanded": "true",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/costalong/code/go/src/github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
       <recent name="$PROJECT_DIR$/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/shutdown" />
+      <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers" />
+      <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
       <recent name="$PROJECT_DIR$/internal/options" />
       <recent name="$PROJECT_DIR$/pkg/app" />
-      <recent name="$PROJECT_DIR$/internal" />
-      <recent name="$PROJECT_DIR$/pkg" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.dev">
@@ -281,6 +204,11 @@
           <url>file://$PROJECT_DIR$/pkg/logger/logs_test.go</url>
           <line>31</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/logger.go</url>
+          <line>35</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

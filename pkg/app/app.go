@@ -149,7 +149,7 @@ func (a *App) buildCommand() {
 		AddConfigFlag(a.basename, namedFlagSets.FlagSet("global"))
 	}
 	globalflag.AddGlobalFlags(namedFlagSets.FlagSet("global"), cmd.Name())
-	// add new global flagset to cmd FlagSet
+	// add new global flag to cmd FlagSet
 	cmd.Flags().AddFlagSet(namedFlagSets.FlagSet("global"))
 
 	addCmdTemplate(&cmd, namedFlagSets)

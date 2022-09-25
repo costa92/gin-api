@@ -7,6 +7,5 @@ func Run(cfg *config.Config) error {
 	if err != nil {
 		return err
 	}
-
 	return server.preRun().Run()
 }

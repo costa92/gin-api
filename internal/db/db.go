@@ -2,6 +2,7 @@ package db
 
 import (
 	"fmt"
+	"github.com/costa92/errors"
 
 	"gorm.io/gorm"
 
@@ -27,4 +28,12 @@ func GetMySQLFactoryOr(opts *option.MySQLOptions) (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to get mysql store fatory, mysqlFactory: %+v, error: %w", MysqlStorage, err)
 	}
 	return MysqlStorage, nil
+}
+
+func Close() error {
+	db, err := MysqlStorage.DB()
+	if err != nil {
+		return errors.Wrap(err, "get gorm db instance failed")
+	}
+	return db.Close()
 }

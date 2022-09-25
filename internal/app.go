@@ -1,9 +1,6 @@
 package internal
 
 import (
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
-
 	"github.com/costa92/go-web/config"
 	"github.com/costa92/go-web/internal/db"
 	"github.com/costa92/go-web/internal/option"
@@ -11,6 +8,10 @@ import (
 	genericapiserver "github.com/costa92/go-web/internal/server"
 	"github.com/costa92/go-web/pkg/app"
 	"github.com/costa92/go-web/pkg/logger"
+	"github.com/costa92/go-web/pkg/shutdown"
+	"github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 )
 
 func NewApp(basename string) *app.App {
@@ -31,6 +32,7 @@ func run(opts *options.Options) app.RunFunc {
 		// 初始化日志
 		logger.Init(opts.Logger)
 		defer logger.Flush()
+		// 配置文件赋值
 		cfg, err := config.CreateConfigFromOptions(opts)
 		if err != nil {
 			return err
@@ -61,6 +63,9 @@ func buildGenericConfig(cfg *config.Config) (genericConfig *genericapiserver.Con
 
 // 创建api服务
 func createAPIServer(cfg *config.Config) (*apiServer, error) {
+	gs := shutdown.New()
+	gs.AddShutdownManager(posixsignal.NewPosixSignalManager())
+
 	// 参数bind
 	genericConfig, err := buildGenericConfig(cfg)
 	if err != nil {
@@ -84,6 +89,7 @@ func createAPIServer(cfg *config.Config) (*apiServer, error) {
 	}
 
 	server := &apiServer{
+		gs:               gs,
 		genericAPIServer: genericServer,
 		gRPCAPIServer:    extraServer,
 	}
@@ -120,15 +126,18 @@ func (c *ExtraConfig) complete() *completedExtraConfig {
 
 func (c *completedExtraConfig) New() (*grpcAPIServer, error) {
 	var grpcServer *grpc.Server
-	creds, err := credentials.NewServerTLSFromFile(c.ServerCert.CertKey.CertFile, c.ServerCert.CertKey.KeyFile)
-	if err != nil {
-		logger.Infof("Failed to generate credentials %s", err.Error())
-	} else {
-		opts := []grpc.ServerOption{grpc.MaxRecvMsgSize(c.MaxMsgSize), grpc.Creds(creds)}
-		grpcServer = grpc.NewServer(opts...)
-		// pb.RegisterCacheServer(grpcServer, cacheIns)
-
+	if c.ServerCert.CertKey.CertFile != "" && c.ServerCert.CertKey.KeyFile != "" {
+		// 运行GRPc
+		creds, err := credentials.NewServerTLSFromFile(c.ServerCert.CertKey.CertFile, c.ServerCert.CertKey.KeyFile)
+		if err != nil {
+			logger.Infof("Failed to generate credentials %s", err.Error())
+		} else {
+			opts := []grpc.ServerOption{grpc.MaxRecvMsgSize(c.MaxMsgSize), grpc.Creds(creds)}
+			grpcServer = grpc.NewServer(opts...)
+			// pb.RegisterCacheServer(grpcServer, cacheIns)
+		}
 	}
+
 	_, _ = db.GetMySQLFactoryOr(c.mysqlOptions)
 	return &grpcAPIServer{grpcServer, c.Addr}, nil
 }

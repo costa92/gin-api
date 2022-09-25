@@ -92,6 +92,7 @@ func (s *GenericAPIServer) Run() error {
 	}
 
 	var eg errgroup.Group
+	// 运行 http
 	eg.Go(func() error {
 		if err := s.insecureServer.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			logger.Fatalw("启动失败", "err", err)
@@ -100,26 +101,23 @@ func (s *GenericAPIServer) Run() error {
 		return nil
 	})
 
+	// 运行 https
 	eg.Go(func() error {
 		key, cert := s.SecureServingInfo.CertKey.KeyFile, s.SecureServingInfo.CertKey.CertFile
 		if cert == "" || key == "" || s.SecureServingInfo.BindPort == 0 {
 			return nil
 		}
 		logger.Infof("Start to listening the incoming requests on https address: %s", s.SecureServingInfo.Address())
-
 		if err := s.secureServer.ListenAndServeTLS(cert, key); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			logger.Fatalw(err.Error())
-
 			return err
 		}
-
 		logger.Infof("Server on %s stopped", s.SecureServingInfo.Address())
-
 		return nil
 	})
 
 	if err := eg.Wait(); err != nil {
-		logger.Fatalw("errgroup Wait", "err", err)
+		logger.Fatalw("err group Wait", "err", err)
 	}
 	return nil
 }
