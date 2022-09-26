@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/option/grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/server/signal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/shutdown/LICENCE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/shutdown/shutdown.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal/posixsignal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/redisx/redis_cluster.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/redisx/storage.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/redis_cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/redis_cluster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/requestid.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/requestid.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/run.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/run.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/server/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/server/genericapiserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/genericapiserver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/app/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/app/cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/app/cmd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/types.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

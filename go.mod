@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/appleboy/gin-jwt/v2 v2.9.0
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
+	github.com/buger/jsonparser v1.1.1
 	github.com/costa92/component-base v1.0.0
 	github.com/costa92/errors v0.0.0-20220820053303-1b353c6b235a
 	github.com/dgraph-io/ristretto v0.1.0
