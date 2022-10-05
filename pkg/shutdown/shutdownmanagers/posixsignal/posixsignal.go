@@ -10,10 +10,11 @@ When ShutdownFinish is called it exits with os.Exit(0)
 package posixsignal
 
 import (
-	"github.com/costa92/go-web/pkg/shutdown"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/costa92/go-web/pkg/shutdown"
 )
 
 // Name defines shutdown manager name.

@@ -52,6 +52,7 @@ func LoggerWithWriter(out io.Writer, notLogger ...string) gin.HandlerFunc {
 		SkipPaths: notLogger,
 	})
 }
+
 func LoggerWithConfig(conf gin.LoggerConfig) gin.HandlerFunc {
 	formatter := conf.Formatter
 	if formatter == nil {

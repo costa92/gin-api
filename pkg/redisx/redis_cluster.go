@@ -4,15 +4,17 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
-	"github.com/costa92/errors"
-	"github.com/costa92/go-web/pkg/logger"
-	"github.com/go-redis/redis/v7"
-	uuid "github.com/satori/go.uuid"
-	"github.com/spf13/viper"
 	"strconv"
 	"strings"
 	"sync/atomic"
 	"time"
+
+	"github.com/costa92/errors"
+	"github.com/go-redis/redis/v7"
+	uuid "github.com/satori/go.uuid"
+	"github.com/spf13/viper"
+
+	"github.com/costa92/go-web/pkg/logger"
 )
 
 type Config struct {
@@ -163,6 +165,7 @@ again:
 		}
 	}
 }
+
 func NewRedisClusterPool(isCache bool, config *Config) redis.UniversalClient {
 	logger.Debug("Creating new Redis connection pool")
 	poolSize := 500

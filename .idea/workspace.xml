@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/redisx/redis_cluster.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/redisx/storage.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/update.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/update_status.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/validator/validator.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/validation/validator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/redisx/redis_cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/redisx/redis_cluster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/redisx/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/redisx/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal/posixsignal.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal/posixsignal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,29 +53,29 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "configurable..is.expanded": "false",
-    "configurable.GoLibrariesConfigurable.is.expanded": "true",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/costalong/code/go/src/github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
+    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/costalong/code/go/src/github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
@@ -183,7 +196,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/internal/auth.go</url>
-          <line>99</line>
+          <line>100</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">

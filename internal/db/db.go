@@ -2,8 +2,8 @@ package db
 
 import (
 	"fmt"
-	"github.com/costa92/errors"
 
+	"github.com/costa92/errors"
 	"gorm.io/gorm"
 
 	"github.com/costa92/go-web/internal/option"

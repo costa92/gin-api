@@ -13,13 +13,22 @@ import (
 
 const TableNameUser = "users"
 
+const (
+	_ = iota
+	StatusNormal
+	StatusDisable
+)
+
 // User mapped from table <admin>
 type User struct {
 	ID        int            `column:"id" json:"id" `
 	Nickname  string         `gorm:"column:nickname" json:"nickname"`     // 用户昵称
 	Password  string         `gorm:"column:password" json:"-"`            // 密码
 	Username  string         `gorm:"column:username" json:"username"`     // 密码
+	Mobile    int64          `gorm:"column:mobile" json:"mobile"`         // 手机号码
 	Salt      string         `gorm:"column:salt" json:"-"`                // 加盐
+	RealName  string         `gorm:"column:real_name" json:"real_name"`   // 真实姓名
+	Status    int            `gorm:"column:status" json:"status"`         // 状态 1 正常  2 禁止
 	LastTime  int64          `gorm:"column:last_time" json:"last_time"`   // 最后登录时间
 	UpdatedAt int64          `gorm:"column:updated_at" json:"updated_at"` // 更新时间
 	CreatedAt int64          `gorm:"column:created_at" json:"created_at"` // 保存时间
@@ -60,6 +69,14 @@ func (a *UserModel) FirstByName(name string) (*User, error) {
 		return nil, err
 	}
 	return admin, nil
+}
+
+func (a *UserModel) FirstByUid(uid int) (*User, error) {
+	user := &User{}
+	if err := a.DB.Where("id = ?", uid).First(user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
 }
 
 func (a *UserModel) Save(user *User) error {

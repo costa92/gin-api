@@ -40,10 +40,10 @@ func (a *AuthController) GetUserInfo(ctx *gin.Context) {
 		token = author[1]
 	}
 	userModel := model.NewUserModel(ctx, a.MysqlStorage)
-	username := ctx.GetString(middleware.UsernameKey)
-	user, err := userModel.FirstByName(username)
+	userId := ctx.GetInt(middleware.UserIdKey)
+	user, err := userModel.FirstByUid(userId)
 	if err != nil {
-		logger.Errorw("GetUserInfo FirstByName failed", middleware.UsernameKey, username, "err", err)
+		logger.Errorw("GetUserInfo FirstByName failed", middleware.UserIdKey, userId, "err", err)
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "获取用户信息错误")
 	}
 	var roles []map[string]string
@@ -54,5 +54,5 @@ func (a *AuthController) GetUserInfo(ctx *gin.Context) {
 		Roles:  roles,
 		Token:  token,
 	}
-	util.WriteResponse(ctx, nil, resp)
+	util.WriteSuccessResponse(ctx, resp)
 }

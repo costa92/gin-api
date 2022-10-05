@@ -1,6 +1,9 @@
 package internal
 
 import (
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+
 	"github.com/costa92/go-web/config"
 	"github.com/costa92/go-web/internal/db"
 	"github.com/costa92/go-web/internal/option"
@@ -10,8 +13,6 @@ import (
 	"github.com/costa92/go-web/pkg/logger"
 	"github.com/costa92/go-web/pkg/shutdown"
 	"github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 )
 
 func NewApp(basename string) *app.App {

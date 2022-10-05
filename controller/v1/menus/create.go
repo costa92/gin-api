@@ -22,5 +22,5 @@ func (m *MenuController) Create(ctx *gin.Context) {
 		util.WriteResponse(ctx, err, "添加菜单错误")
 		return
 	}
-	util.WriteResponse(ctx, nil, "success")
+	util.WriteSuccessResponse(ctx, "success")
 }

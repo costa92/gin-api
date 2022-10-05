@@ -52,6 +52,10 @@ func initController(g *gin.Engine) *gin.Engine {
 	user := api.Group("/")
 	{
 		user.GET("users", userCtx.Users)
+		user.POST("user", userCtx.Create)
+		user.PUT("user", userCtx.Update)
+		user.GET("user", userCtx.Get)
+		user.PUT("user/state", userCtx.UpdateStates)
 	}
 
 	menuCtx := menus.NewMenuController(db.MysqlStorage)

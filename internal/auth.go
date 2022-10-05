@@ -8,6 +8,7 @@ import (
 	"time"
 
 	jwt "github.com/appleboy/gin-jwt/v2"
+	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 
@@ -68,7 +69,7 @@ func newJWTAuth() middleware.AuthStrategy {
 		Unauthorized: func(c *gin.Context, code int, message string) {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    code,
-				"message": "Unauthorized",
+				"message": message,
 				"result":  map[string]string{},
 			})
 		},
@@ -76,7 +77,7 @@ func newJWTAuth() middleware.AuthStrategy {
 			claims := jwt.ExtractClaims(c)
 			return claims[jwt.IdentityKey]
 		},
-		IdentityKey:   middleware.UsernameKey,
+		IdentityKey:   middleware.UserIdKey,
 		Authorizator:  authorizator(),
 		TokenLookup:   "header: Authorization, query: token, cookie: jwt",
 		TokenHeadName: "Bearer",
@@ -108,6 +109,10 @@ func authenticator() func(c *gin.Context) (interface{}, error) {
 		if err != nil {
 			logger.Errorw("get user information failed", "err", err)
 			return "", jwt.ErrFailedAuthentication
+		}
+		if user.Status == model.StatusDisable {
+			logger.Errorw("get user statue failed", "err", err)
+			return "", errors.New("account status disable")
 		}
 		if err := user.Compare(login.Password); err != nil {
 			logger.Errorf("user.Compare: %v", err)
@@ -198,6 +203,7 @@ func payloadFunc() func(data interface{}) jwt.MapClaims {
 			"iss": APIServerIssuer,
 			"aud": APIServerAudience,
 		}
+
 		if u, ok := data.(*model.User); ok {
 			claims[jwt.IdentityKey] = u.Username
 			claims[middleware.UserIdKey] = u.ID

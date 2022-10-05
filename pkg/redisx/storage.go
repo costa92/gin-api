@@ -5,13 +5,15 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"github.com/buger/jsonparser"
-	"github.com/costa92/errors"
-	"github.com/costa92/go-web/third_party/forked/murmur3"
-	uuid "github.com/satori/go.uuid"
 	"hash"
 	"strings"
 	"time"
+
+	"github.com/buger/jsonparser"
+	"github.com/costa92/errors"
+	uuid "github.com/satori/go.uuid"
+
+	"github.com/costa92/go-web/third_party/forked/murmur3"
 )
 
 // ErrKeyNotFound is a standard error for when a key is not found in the storage engine.
