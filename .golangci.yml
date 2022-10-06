@@ -3,7 +3,7 @@ run:
   skip-dirs:
     - vendor
   timeout: 600s
-  go: '1.18'
+  go: '1.19'
   output:
     format: colored-line-number
     print-issued-lines: false
