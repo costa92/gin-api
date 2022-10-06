@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.golangci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.golangci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/update.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/update_status.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/request.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/menus.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/menus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/roles/roles.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/roles.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

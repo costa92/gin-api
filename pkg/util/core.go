@@ -46,3 +46,8 @@ func WriteSuccessResponse(c *gin.Context, data interface{}) {
 	WriteResponse(c, nil, data)
 	return
 }
+
+func WriteErrResponse(c *gin.Context, code int, error error, data interface{}) {
+	WriteResponse(c, errors.WithCode(code, error.Error()), data)
+	return
+}

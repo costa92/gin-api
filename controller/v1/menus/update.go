@@ -1,7 +1,6 @@
 package menus
 
 import (
-	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 
 	"github.com/costa92/go-web/model"
@@ -12,7 +11,7 @@ import (
 func (m *MenuController) Update(ctx *gin.Context) {
 	var req MenuUpdateRequest
 	if err := ctx.ShouldBind(&req); err != nil {
-		util.WriteResponse(ctx, errors.WithCode(code.ErrBind, err.Error()), "参数错误")
+		util.WriteErrResponse(ctx, code.ErrBind, err, "参数错误")
 		return
 	}
 	menuModel := model.NewMenuModel(ctx, m.MysqlStorage)

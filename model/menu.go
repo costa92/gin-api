@@ -2,6 +2,7 @@ package model
 
 import (
 	"context"
+	"github.com/costa92/go-web/pkg/meta"
 	"time"
 
 	"github.com/costa92/errors"
@@ -36,6 +37,11 @@ type Menu struct {
 
 func (m *Menu) TableName() string {
 	return TableNameMenu
+}
+
+type MenuList struct {
+	meta.ListMeta `json:",inline"`
+	Items         []*Menu `json:"items"`
 }
 
 type MenuModel struct {

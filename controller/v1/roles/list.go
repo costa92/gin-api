@@ -1,35 +1,27 @@
-package menus
+package roles
 
 import (
 	"github.com/costa92/errors"
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
+	"github.com/costa92/go-web/pkg/meta"
 	"github.com/costa92/go-web/pkg/util"
 	"github.com/costa92/go-web/pkg/util/gormutil"
 	"github.com/gin-gonic/gin"
 )
 
-type MenuListRequest struct {
-	model.PageRequest
-}
-
-func (m *MenuController) List(ctx *gin.Context) {
-	var req MenuListRequest
-	ret := &model.MenuList{}
-
-	if err := ctx.ShouldBindQuery(&req); err != nil {
-		util.WriteErrResponse(ctx, code.ErrBind, err, nil)
-		return
-	}
-	if err := ctx.ShouldBindQuery(&req); err != nil {
+func (api *RoleController) Index(ctx *gin.Context) {
+	var r meta.ListOptions
+	ret := &model.RoleList{}
+	if err := ctx.ShouldBindQuery(&r); err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrBind, err.Error()), nil)
 		return
 	}
 	// 分页处理
-	ol := gormutil.Unpointer(&req.Page, &req.PageSize)
+	ol := gormutil.Unpointer(r.Offset, r.Limit)
 	// 处理查询数据
-	if err := m.MysqlStorage.
-		Model(&model.Menu{}).Scopes(gormutil.Paginate(ol.Offset, ol.Limit)).
+	if err := api.MysqlStorage.
+		Model(&model.Role{}).Scopes(gormutil.Paginate(ol.Offset, ol.Limit)).
 		Order("id desc").
 		Find(&ret.Items).
 		Offset(-1).
@@ -40,5 +32,4 @@ func (m *MenuController) List(ctx *gin.Context) {
 		return
 	}
 	util.WriteSuccessResponse(ctx, ret)
-	util.WriteSuccessResponse(ctx, "ret")
 }
