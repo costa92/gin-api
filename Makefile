@@ -1,5 +1,4 @@
 
-
 fmt:
 	@gofumpt -version || go install mvdan.cc/gofumpt@latest
 	gofumpt -extra -w -d .
@@ -11,3 +10,15 @@ lint:
 	golangci-lint version
 	golangci-lint run -v --color always --out-format colored-line-number
 
+.PHONY: all build clean run check cover lint docker help
+BIN_FILE=go-web
+all: check build
+build:
+	@go build -o ${BIN_FILE} main.go
+check:
+	@go fmt ./
+	@go vet ./
+clean:
+	@if [ -f ${BIN_FILE} ] ; then rm ${BIN_FILE} ; fi
+test:
+	@go test -v -cover -covermode=atomic ./...
