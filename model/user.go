@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/costa92/component-base/pkg/maps"
 	"gorm.io/gorm"
 
 	"github.com/costa92/go-web/pkg/logger"
@@ -39,6 +40,11 @@ type User struct {
 func (u *User) TableName() string {
 	return TableNameUser
 }
+
+var UserStatusOptionDesc = maps.NewOptions(maps.MapOptions[int, string]{
+	StatusNormal:  "正常",
+	StatusDisable: "禁用",
+})
 
 func (u *User) Compare(pwd string) error {
 	if err := auth.Compare(u.Password, pwd); err != nil {

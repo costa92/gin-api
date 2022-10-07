@@ -2,7 +2,9 @@ package users
 
 import (
 	"github.com/costa92/errors"
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/gin-gonic/gin"
+	"time"
 
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
@@ -10,6 +12,17 @@ import (
 	"github.com/costa92/go-web/pkg/util"
 	"github.com/costa92/go-web/pkg/util/gormutil"
 )
+
+type UserItem struct {
+	*model.User
+	StatusDesc string `json:"status_desc"`
+	CreatedAt  string `json:"created_at"`
+}
+
+type UserResponse struct {
+	Items         []*UserItem `json:"items"`
+	meta.ListMeta `json:",inline"`
+}
 
 func (u *UserController) Users(ctx *gin.Context) {
 	var r meta.ListOptions
@@ -32,5 +45,16 @@ func (u *UserController) Users(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据库错误")
 		return
 	}
-	util.WriteResponse(ctx, nil, ret)
+	items := make([]*UserItem, 0)
+	if len(ret.Items) > 0 {
+		for _, user := range ret.Items {
+			item := &UserItem{
+				User:       user,
+				StatusDesc: model.UserStatusOptionDesc.Option(user.Status),
+				CreatedAt:  time.Unix(user.CreatedAt, 0).Format(middleware.TimeFieldFormat),
+			}
+			items = append(items, item)
+		}
+	}
+	util.WriteResponse(ctx, nil, UserResponse{Items: items, ListMeta: ret.ListMeta})
 }

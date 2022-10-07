@@ -6,7 +6,7 @@ require (
 	github.com/appleboy/gin-jwt/v2 v2.9.0
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
 	github.com/buger/jsonparser v1.1.1
-	github.com/costa92/component-base v1.0.0
+	github.com/costa92/component-base v1.0.2
 	github.com/costa92/errors v0.0.0-20220820053303-1b353c6b235a
 	github.com/dgraph-io/ristretto v0.1.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -22,7 +22,6 @@ require (
 	github.com/mattn/go-isatty v0.0.14
 	github.com/novalagung/gubrak v1.0.0
 	github.com/prometheus/client_golang v1.12.2
-	github.com/rs/zerolog v1.27.0
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.5.0
