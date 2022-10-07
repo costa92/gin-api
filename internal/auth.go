@@ -77,7 +77,7 @@ func newJWTAuth() middleware.AuthStrategy {
 			claims := jwt.ExtractClaims(c)
 			return claims[jwt.IdentityKey]
 		},
-		IdentityKey:   middleware.UserIdKey,
+		IdentityKey:   middleware.UsernameKey,
 		Authorizator:  authorizator(),
 		TokenLookup:   "header: Authorization, query: token, cookie: jwt",
 		TokenHeadName: "Bearer",

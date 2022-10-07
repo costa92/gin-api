@@ -33,12 +33,22 @@ func initController(g *gin.Engine) *gin.Engine {
 		util.WriteResponse(c, errors.WithCode(code.ErrPageNotFound, "Page not found."), nil)
 	})
 
-	roleCtx := roles.NewRoleController(db.MysqlStorage)
 	api.Use(auto.AuthFunc())
-
+	roleCtx := roles.NewRoleController(db.MysqlStorage)
 	authCtx := v1.NewAuthController(db.MysqlStorage)
-	api.GET("/getUserInfo", authCtx.GetUserInfo)
+	menuCtx := menus.NewMenuController(db.MysqlStorage)
+	userCtx := users.NewUserController(db.MysqlStorage)
 
+	api.GET("/getUserInfo", authCtx.GetUserInfo)
+	api.GET("/getMenuList", menuCtx.GetMenuList)
+	api.GET("/getPermCode", menuCtx.GetPermissionCode)
+
+	menu := api.Group("/")
+	{
+		menu.GET("menus", menuCtx.List)
+		menu.POST("menu", menuCtx.Create)
+		menu.PUT("menu", menuCtx.Update)
+	}
 	role := api.Group("/")
 	{
 		role.GET("roles", roleCtx.Index)
@@ -47,8 +57,6 @@ func initController(g *gin.Engine) *gin.Engine {
 		role.GET("role", roleCtx.Detail)
 		role.PUT("role/state", roleCtx.UpdateState)
 	}
-
-	userCtx := users.NewUserController(db.MysqlStorage)
 	user := api.Group("/")
 	{
 		user.GET("users", userCtx.Users)
@@ -56,14 +64,6 @@ func initController(g *gin.Engine) *gin.Engine {
 		user.PUT("user", userCtx.Update)
 		user.GET("user", userCtx.Get)
 		user.PUT("user/state", userCtx.UpdateStates)
-	}
-
-	menuCtx := menus.NewMenuController(db.MysqlStorage)
-	menu := api.Group("/")
-	{
-		menu.GET("menus", menuCtx.List)
-		menu.POST("menu", menuCtx.Create)
-		menu.PUT("menu", menuCtx.Update)
 	}
 	return g
 }
