@@ -2,10 +2,11 @@ package menus
 
 import (
 	"github.com/costa92/errors"
+	"github.com/gin-gonic/gin"
+
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
 	"github.com/costa92/go-web/pkg/util"
-	"github.com/gin-gonic/gin"
 )
 
 type RouteMeta struct {
@@ -25,8 +26,7 @@ type MenuTreeItem struct {
 	Meta      RouteMeta      `json:"meta"`
 	Children  []MenuTreeItem `json:"children"`
 }
-type GetMenuListRequest struct {
-}
+type GetMenuListRequest struct{}
 
 func (m *MenuController) GetMenuList(ctx *gin.Context) {
 	var menus []*model.Menu

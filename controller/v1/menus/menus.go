@@ -1,8 +1,9 @@
 package menus
 
 import (
-	"github.com/costa92/go-web/model"
 	"gorm.io/gorm"
+
+	"github.com/costa92/go-web/model"
 )
 
 type MenuController struct {

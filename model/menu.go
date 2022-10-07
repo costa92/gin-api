@@ -2,7 +2,6 @@ package model
 
 import (
 	"context"
-	"github.com/costa92/go-web/pkg/meta"
 	"time"
 
 	"github.com/costa92/errors"
@@ -10,6 +9,7 @@ import (
 	"gorm.io/gorm"
 
 	code2 "github.com/costa92/go-web/pkg/code"
+	"github.com/costa92/go-web/pkg/meta"
 )
 
 const TableNameMenu = "menus"

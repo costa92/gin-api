@@ -2,10 +2,11 @@ package menus
 
 import (
 	"github.com/costa92/errors"
+	"github.com/gin-gonic/gin"
+
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
 	"github.com/costa92/go-web/pkg/util"
-	"github.com/gin-gonic/gin"
 )
 
 func (m *MenuController) GetPermissionCode(ctx *gin.Context) {
