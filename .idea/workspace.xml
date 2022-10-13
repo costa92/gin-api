@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/list.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
     <configuration name="dev" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="go-web" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="--config config/config.yaml " />
+      <parameters value="--config config/config.yaml" />
       <envs>
         <env name="GO111MODULE" value="on" />
       </envs>
