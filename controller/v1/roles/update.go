@@ -28,6 +28,7 @@ func (api *RoleController) Update(ctx *gin.Context) {
 	}
 	role.Name = req.Name
 	role.Remark = req.Remark
+	role.Status = req.Status
 
 	if err := tx.Save(&role).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "保存数据错误")

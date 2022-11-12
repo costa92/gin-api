@@ -13,8 +13,9 @@ import (
 )
 
 type CreateRequest struct {
-	Name   string `form:"Name" binding:"required" json:"name"`
+	Name   string `form:"name" binding:"required" json:"name"`
 	Remark string `form:"remark" binding:"required" json:"remark"`
+	Status int    `form:"status" binding:"gte=1"  json:"status"`
 	Menus  []int  `form:"menus" binding:"required" json:"menus"`
 }
 
@@ -28,10 +29,11 @@ func (api *RoleController) Create(ctx *gin.Context) {
 	role := &model.Role{
 		Name:      rep.Name,
 		Remark:    rep.Remark,
+		Status:    rep.Status,
 		UpdatedAt: currUnix,
 		CreatedAt: currUnix,
 	}
-	if err := api.MysqlStorage.Model(&model.Role{}).Create(role).Error; err != nil {
+	if err := api.MysqlStorage.Model(&model.Role{}).Debug().Create(role).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "添加角色错误")
 		return
 	}

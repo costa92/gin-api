@@ -2,7 +2,9 @@ package roles
 
 import (
 	"github.com/costa92/errors"
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/gin-gonic/gin"
+	"time"
 
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
@@ -10,6 +12,16 @@ import (
 	"github.com/costa92/go-web/pkg/util"
 	"github.com/costa92/go-web/pkg/util/gormutil"
 )
+
+type RoleItem struct {
+	*model.Role
+	CreatedTime string `json:"created_time"`
+}
+
+type IndexResponse struct {
+	Items         []*RoleItem `json:"items"`
+	meta.ListMeta `json:",inline"`
+}
 
 func (api *RoleController) Index(ctx *gin.Context) {
 	var r meta.ListOptions
@@ -32,6 +44,19 @@ func (api *RoleController) Index(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据库错误")
 		return
 	}
+	items := make([]*RoleItem, 0)
+	if len(ret.Items) > 0 {
+		for _, item := range ret.Items {
+			var createTime string
+			if item.CreatedAt > 0 {
+				createTime = time.Unix(item.CreatedAt, 0).Format(middleware.TimeFieldFormat)
+			}
+			items = append(items, &RoleItem{
+				Role:        item,
+				CreatedTime: createTime,
+			})
+		}
+	}
 
-	util.WriteSuccessResponse(ctx, ret)
+	util.WriteSuccessResponse(ctx, IndexResponse{Items: items, ListMeta: ret.ListMeta})
 }

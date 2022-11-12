@@ -5,65 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/v1/areas/area.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/areas/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/area_create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/distribute.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/single_create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/enterprise.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/waiting_follow.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/enterprise_contact.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/get_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/enterprise_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/follow/follow.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/follow/follow_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/menus/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/roles/get_all_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/users/get_options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/users/user_exist.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/area.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/distribute.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/enterprise.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/enterprise_contact.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/enterprise_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/role_menu.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/user_role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.golangci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.golangci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/menus/get_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/get_list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/menus/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/menus/menus.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/menus.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/v1/roles/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/roles/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/get.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/v1/roles/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/v1/roles/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/update.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/get.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/update.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/users.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/code/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/code/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

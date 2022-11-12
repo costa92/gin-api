@@ -12,12 +12,12 @@ const TableNameRole = "roles"
 
 type Role struct {
 	ID        int64          `json:"id" gorm:"id"`
-	Name      string         `gorm:"column:name" json:"name"`                // 角色名
-	Remark    string         `gorm:"remark" json:"remark"`                   // 备注
-	Status    int            `gorm:"status;default:1" json:"status"`         // 状态 1正常 2 禁止
-	CreatedAt int64          `gorm:"created_at;default:0" json:"created_at"` // 添加时间
-	UpdatedAt int64          `gorm:"updated_at;default:0" json:"updated_at"` // 修改时间
-	DeletedAt gorm.DeletedAt `gorm:"column:deleted_at" json:"-"`             // 删除时间
+	Name      string         `gorm:"column:name" json:"name"`                       // 角色名
+	Remark    string         `gorm:"remark" json:"remark"`                          // 备注
+	Status    int            `gorm:"column:status;default:1" json:"status"`         // 状态 1正常 2 禁止
+	CreatedAt int64          `gorm:"column:created_at;default:0" json:"created_at"` // 添加时间
+	UpdatedAt int64          `gorm:"column:updated_at;default:0" json:"updated_at"` // 修改时间
+	DeletedAt gorm.DeletedAt `gorm:"column:deleted_at" json:"-"`                    // 删除时间
 }
 
 // TableName Role's table name
