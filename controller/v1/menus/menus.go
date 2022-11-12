@@ -53,3 +53,7 @@ func (m *MenuController) SaveParams(menu *model.Menu, req *MenuCreateRequest) *m
 	menu.Path = req.Path
 	return menu
 }
+
+type MenuDetailRequest struct {
+	ID int `json:"id" form:"id" binding:"required"`
+}

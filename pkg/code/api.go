@@ -19,3 +19,13 @@ const (
 	// ErrMenuAlreadyExist - 400: Menu already exist.
 	ErrMenuAlreadyExist
 )
+
+const (
+	ErrRoleUserNotFound int = iota + 120101
+	ErrRoleUserExist
+)
+
+const (
+	ErrRoleNotFound int = iota + 130101
+	ErrRoleExist
+)

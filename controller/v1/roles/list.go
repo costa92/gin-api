@@ -32,5 +32,6 @@ func (api *RoleController) Index(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据库错误")
 		return
 	}
+
 	util.WriteSuccessResponse(ctx, ret)
 }

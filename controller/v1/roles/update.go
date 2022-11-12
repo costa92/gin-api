@@ -28,8 +28,13 @@ func (api *RoleController) Update(ctx *gin.Context) {
 	}
 	role.Name = req.Name
 	role.Remark = req.Remark
+
 	if err := tx.Save(&role).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "保存数据错误")
+		return
+	}
+	if err := api.saveRoleMenus(ctx, int(role.ID), req.Menus); err != nil {
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "添加角色菜单错误")
 		return
 	}
 	util.WriteResponse(ctx, nil, "success")

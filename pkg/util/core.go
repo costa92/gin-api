@@ -32,6 +32,7 @@ func WriteResponse(c *gin.Context, err error, data interface{}) {
 			Message:   coder.String(),
 			Reference: coder.Reference(),
 		})
+		return
 	}
 	c.JSON(http.StatusOK, SuccessResponse{
 		Code:    http.StatusOK,

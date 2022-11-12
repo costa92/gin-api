@@ -6,11 +6,16 @@ import (
 
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
+	"github.com/costa92/go-web/pkg/logger"
 	"github.com/costa92/go-web/pkg/util"
 )
 
 type RequestDetail struct {
 	Id int `query:"id" binding:"gte=1" form:"id"`
+}
+type DetailResponse struct {
+	*model.Role
+	Menus []int `json:"menus"`
 }
 
 func (api *RoleController) Detail(ctx *gin.Context) {
@@ -25,7 +30,15 @@ func (api *RoleController) Detail(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据错误")
 		return
 	}
-	util.WriteResponse(ctx, nil, role)
+	roleMenuModel := model.NewRoleMenuModel(ctx, api.MysqlStorage)
+	menuIds, err := roleMenuModel.GetRolesByRoleId(req.Id)
+	if err != nil {
+		logger.Errorw("RoleController Detail NewRoleMenuModel.GetRolesByRoleId", "err", err)
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
+		return
+	}
+
+	util.WriteResponse(ctx, nil, DetailResponse{Role: &role, Menus: menuIds})
 }
 
 func (api *RoleController) Del(ctx *gin.Context) {

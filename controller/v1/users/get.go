@@ -11,6 +11,11 @@ import (
 	"github.com/costa92/go-web/pkg/util"
 )
 
+type DetailRequest struct {
+	*model.User
+	Role []int `json:"role"`
+}
+
 func (u *UserController) Get(ctx *gin.Context) {
 	var req GetUserRequest
 	if err := ctx.ShouldBindQuery(&req); err != nil {
@@ -31,5 +36,12 @@ func (u *UserController) Get(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
 		return
 	}
-	util.WriteSuccessResponse(ctx, user)
+	userRoleModel := model.NewUserRoleModel(ctx, u.MysqlStorage)
+	roleIds, err := userRoleModel.GetRolesByUserId(user.ID)
+	if err != nil {
+		logger.Errorw("UserController NewUserRoleModel.GetRolesByUserId", "err", err)
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
+		return
+	}
+	util.WriteSuccessResponse(ctx, DetailRequest{User: user, Role: roleIds})
 }

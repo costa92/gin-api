@@ -30,7 +30,7 @@ type GetMenuListRequest struct{}
 
 func (m *MenuController) GetMenuList(ctx *gin.Context) {
 	var menus []*model.Menu
-	if err := m.MysqlStorage.Model(&model.Menu{}).Where("menu_type in ?", []int{1, 2}).Order("id desc").Find(&menus).Error; err != nil {
+	if err := m.MysqlStorage.Model(&model.Menu{}).Debug().Where("menu_type in ?", []int{1, 2}).Order("id desc").Find(&menus).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据库错误")
 		return
 	}

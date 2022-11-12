@@ -15,11 +15,12 @@ func NewUserController(db *gorm.DB) *UserController {
 }
 
 type UserCreateRequest struct {
-	Username string `json:"username" validate:"required"`
-	Nickname string `json:"nickname" validate:"required"`
-	Mobile   int64  `json:"mobile" validate:"required"`
-	RealName string `json:"real_name" validate:"required"`
-	Status   int    `json:"status" validate:"oneof=1 2"`
+	Username string `json:"username" form:"username"  validate:"required"`
+	Nickname string `json:"nickname" form:"nickname" validate:"required"`
+	Mobile   int64  `json:"mobile" form:"mobile" validate:"required"`
+	RealName string `json:"real_name" form:"real_name" validate:"required"`
+	Status   int    `json:"status" form:"status" validate:"oneof=1 2"`
+	Role     []int  `json:"role" form:"role" validate:"required"`
 }
 
 func (u *UserController) saveParams(user *model.User, req *UserCreateRequest) {
@@ -31,13 +32,13 @@ func (u *UserController) saveParams(user *model.User, req *UserCreateRequest) {
 }
 
 type UserUpdateRequest struct {
-	GetUserRequest
+	Id int `json:"id" form:"id" validate:"required"`
 	UserCreateRequest
 }
 
 type UserUpdateStatusRequest struct {
 	GetUserRequest
-	Status int `json:"status" validate:"oneof=1 2"`
+	Status int `json:"status" form:"status"  validate:"oneof=1 2"`
 }
 
 type GetUserRequest struct {

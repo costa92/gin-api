@@ -19,6 +19,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-redis/redis_rate/v9 v9.1.2
 	github.com/marmotedu/component-base v1.6.2
+	github.com/marmotedu/log v0.0.1
 	github.com/mattn/go-isatty v0.0.14
 	github.com/novalagung/gubrak v1.0.0
 	github.com/prometheus/client_golang v1.12.2
@@ -40,7 +41,9 @@ require (
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
+	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/casbin/casbin/v2 v2.56.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect

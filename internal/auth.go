@@ -63,6 +63,7 @@ func newJWTAuth() middleware.AuthStrategy {
 				"message": "Logout Success",
 				"result":  map[string]string{},
 			})
+			return
 		},
 		RefreshResponse: refreshResponse(),
 		PayloadFunc:     payloadFunc(),
@@ -72,6 +73,7 @@ func newJWTAuth() middleware.AuthStrategy {
 				"message": message,
 				"result":  map[string]string{},
 			})
+			return
 		},
 		IdentityHandler: func(c *gin.Context) interface{} {
 			claims := jwt.ExtractClaims(c)

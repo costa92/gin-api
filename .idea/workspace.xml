@@ -5,8 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controller/v1/areas/area.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/areas/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/area_create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/distribute.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/distribute/single_create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/enterprise.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/update.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise/waiting_follow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/enterprise_contact.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/get_list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/enterprise_type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/enterprise_type/update.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/follow/follow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/follow/follow_list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/menus/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/roles/get_all_list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/get_options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/users/user_exist.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/area.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/distribute.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/enterprise.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/enterprise_contact.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/enterprise_type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/role_menu.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/user_role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.golangci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.golangci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/get_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/get_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/v1/menus/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/menus/menus.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/menus/menus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/roles/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/roles/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/roles/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/roles/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/roles/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/users/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/code/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/code/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,41 +93,42 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
-    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/costalong/code/go/src/github.com/costa92/go-web/pkg/shutdown/shutdownmanagers/posixsignal&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "configurable..is.expanded": "false",
+    "configurable.GoLibrariesConfigurable.is.expanded": "true",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/costalong/code/go/src/github.com/costa92/go-web/controller/v1/enterprise_type",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
+      <recent name="$PROJECT_DIR$/controller/v1/enterprise_type" />
       <recent name="$PROJECT_DIR$/model" />
+      <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controller/v1/follow" />
       <recent name="$PROJECT_DIR$/pkg/shutdown" />
       <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers" />
       <recent name="$PROJECT_DIR$/pkg/shutdown/shutdownmanagers/posixsignal" />
       <recent name="$PROJECT_DIR$/internal/options" />
-      <recent name="$PROJECT_DIR$/pkg/app" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.dev">
@@ -180,7 +238,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/internal/auth.go</url>
-          <line>100</line>
+          <line>102</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -192,6 +250,16 @@
           <url>file://$PROJECT_DIR$/internal/middleware/logger.go</url>
           <line>35</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/route.go</url>
+          <line>43</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/auth/auth.go</url>
+          <line>36</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

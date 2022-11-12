@@ -1,11 +1,12 @@
 package menus
 
 import (
-	"github.com/costa92/errors"
-	"github.com/costa92/go-web/internal/middleware"
-	"github.com/gin-gonic/gin"
 	"time"
 
+	"github.com/costa92/errors"
+	"github.com/gin-gonic/gin"
+
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
 	"github.com/costa92/go-web/pkg/util"
@@ -13,24 +14,23 @@ import (
 
 type MenuListRequest struct {
 	model.PageRequest
+	MenuStatus int `json:"menu_status" query:"menu_status"  form:"menu_status"`
 }
 
 func (m *MenuController) List(ctx *gin.Context) {
 	var req MenuListRequest
 	ret := &model.MenuList{}
-
 	if err := ctx.ShouldBindQuery(&req); err != nil {
 		util.WriteErrResponse(ctx, code.ErrBind, err, nil)
 		return
 	}
-	if err := ctx.ShouldBindQuery(&req); err != nil {
-		util.WriteResponse(ctx, errors.WithCode(code.ErrBind, err.Error()), nil)
-		return
+	tx := m.MysqlStorage.
+		Model(&model.Menu{}).Debug()
+	if req.MenuStatus > 0 {
+		tx = tx.Where("menu_status = ?", req.MenuStatus)
 	}
 	// 处理查询数据
-	if err := m.MysqlStorage.
-		Model(&model.Menu{}).
-		Order("menu_sort asc").
+	if err := tx.Order("menu_sort asc").
 		Find(&ret.Items).
 		Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据库错误")
@@ -38,7 +38,6 @@ func (m *MenuController) List(ctx *gin.Context) {
 	}
 	trees := listMenuTree(ret.Items, 0)
 	util.WriteSuccessResponse(ctx, trees)
-
 }
 
 type ListMenuTreeItem struct {

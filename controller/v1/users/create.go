@@ -27,7 +27,8 @@ func (u *UserController) Create(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrValidation, err.Error()), nil)
 		return
 	}
-	userModel := model.NewUserModel(ctx, u.MysqlStorage)
+	tx := u.MysqlStorage
+	userModel := model.NewUserModel(ctx, tx)
 	userInfo, err := userModel.FirstByName(req.Username)
 	if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
@@ -40,12 +41,21 @@ func (u *UserController) Create(ctx *gin.Context) {
 
 	user := &model.User{}
 	password, _ := auth.Encrypt(defaultPassword)
+	txx := u.MysqlStorage.Begin()
 	u.saveParams(user, &req)
 	user.Password = password
 	if err := userModel.Save(user); err != nil {
 		logger.Errorf("userController Create Save failed", "err", err)
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
+		txx.Rollback()
 		return
 	}
+	if err = u.saveUserRole(ctx, user.ID, req.Role); err != nil {
+		logger.Errorf("userController Create saveUserRole  failed", "err", err)
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), nil)
+		txx.Rollback()
+		return
+	}
+	txx.Commit()
 	util.WriteSuccessResponse(ctx, "success")
 }

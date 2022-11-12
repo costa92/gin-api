@@ -1,6 +1,9 @@
 package roles
 
 import (
+	"context"
+	"time"
+
 	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 
@@ -12,6 +15,7 @@ import (
 type CreateRequest struct {
 	Name   string `form:"Name" binding:"required" json:"name"`
 	Remark string `form:"remark" binding:"required" json:"remark"`
+	Menus  []int  `form:"menus" binding:"required" json:"menus"`
 }
 
 func (api *RoleController) Create(ctx *gin.Context) {
@@ -20,13 +24,35 @@ func (api *RoleController) Create(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrValidation, err.Error()), "参数错误")
 		return
 	}
+	currUnix := time.Now().Unix()
 	role := &model.Role{
-		Name:   rep.Name,
-		Remark: rep.Remark,
+		Name:      rep.Name,
+		Remark:    rep.Remark,
+		UpdatedAt: currUnix,
+		CreatedAt: currUnix,
 	}
 	if err := api.MysqlStorage.Model(&model.Role{}).Create(role).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "添加角色错误")
 		return
 	}
+	if err := api.saveRoleMenus(ctx, int(role.ID), rep.Menus); err != nil {
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "添加角色菜单错误")
+		return
+	}
 	util.WriteResponse(ctx, nil, "success")
+}
+
+func (api *RoleController) saveRoleMenus(ctx context.Context, roleId int, menuIds []int) error {
+	roleMenuModel := model.NewRoleMenuModel(ctx, api.MysqlStorage)
+	if err := roleMenuModel.DeletedByRoleId(roleId); err != nil {
+		return err
+	}
+	roleMenus := make([]model.RoleMenu, 0)
+	for _, id := range menuIds {
+		roleMenus = append(roleMenus, model.RoleMenu{
+			MenuId: uint(id),
+			RoleId: uint(roleId),
+		})
+	}
+	return roleMenuModel.DB.Create(&roleMenus).Error
 }

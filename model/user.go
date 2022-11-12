@@ -69,24 +69,36 @@ func NewUserModel(ctx context.Context, db *gorm.DB) *UserModel {
 	}
 }
 
-func (a *UserModel) FirstByName(name string) (*User, error) {
+func (m *UserModel) FirstByName(name string) (*User, error) {
 	admin := &User{}
-	if err := a.DB.Where("username = ?", name).First(admin).Error; err != nil {
+	if err := m.DB.Where("username = ?", name).First(admin).Debug().Error; err != nil {
 		return nil, err
 	}
 	return admin, nil
 }
 
-func (a *UserModel) FirstByUid(uid int) (*User, error) {
+func (m *UserModel) FirstByUid(uid int) (*User, error) {
 	user := &User{}
-	if err := a.DB.Where("id = ?", uid).First(user).Error; err != nil {
+	if err := m.DB.Where("id = ?", uid).First(user).Error; err != nil {
 		return nil, err
 	}
 	return user, nil
 }
 
-func (a *UserModel) Save(user *User) error {
-	tx := a.DB
+func (m *UserModel) QueryList(name string) ([]*User, error) {
+	tx := m.DB
+	users := make([]*User, 0)
+	if name != "" {
+		tx = tx.Where("name like ?", "%"+name+"%")
+	}
+	if err := tx.Find(&users).Error; err != nil {
+		return nil, err
+	}
+	return users, nil
+}
+
+func (m *UserModel) Save(user *User) error {
+	tx := m.DB
 	if user.ID > 0 {
 		tx = tx.Where("id = ?", user.ID)
 	}
