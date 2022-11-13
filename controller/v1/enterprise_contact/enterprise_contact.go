@@ -37,3 +37,16 @@ func (c *EnterpriseContactController) saveParams(contact *model.EnterpriseContac
 	}
 	contact.MultiMobile = multiMobile
 }
+
+func (c *EnterpriseContactController) updateParams(contact *model.EnterpriseContact, req *UpdateRequest) {
+	contact.Name = req.Name
+	contact.Mobile = req.Mobile
+	contact.Position = req.Position
+}
+
+type UpdateRequest struct {
+	Id       int    `json:"id" form:"id"  validate:"required"`
+	Name     string `json:"name" form:"name"  validate:"required"`
+	Mobile   string `json:"mobile" form:"mobile" validate:"required"`
+	Position string `json:"position" form:"position"`
+}

@@ -105,6 +105,8 @@ func initController(g *gin.Engine) *gin.Engine {
 		enterpriseR.POST("contact", enterContactCtx.Create)
 		enterpriseR.GET("contact/enterprises", enterContactCtx.GetListByEnterpriseId)
 		enterpriseR.GET("contacts", enterContactCtx.GeList)
+		enterpriseR.GET("contact", enterContactCtx.Detail)
+		enterpriseR.PUT("contact", enterContactCtx.Update)
 
 		// 类型
 		enterpriseR.GET("types", enterTypeCtx.Index)
