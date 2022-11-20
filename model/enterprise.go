@@ -12,19 +12,20 @@ import (
 var TableEnterpriseName = "enterprise"
 
 type Enterprise struct {
-	Id         uint   `gorm:"column:id" json:"id"`
-	Name       string `gorm:"column:name" json:"name"`
-	ProvinceId int    `gorm:"column:province_id" json:"province_id"`
-	CityId     int    `gorm:"column:city_id" json:"city_id"`
-	CountyId   int    `gorm:"column:county_id" json:"county_id"`
-	Status     int    `gorm:"column:status" json:"status"`
-	Type       int    `gorm:"column:type" json:"type"`
-	Tel        string `gorm:"column:tel" json:"tel"`
-	Fax        string `gorm:"column:fax" json:"fax"`
-	CreatedAt  int64  `gorm:"column:created_at" json:"created_at"`
-	CreatedBy  int    `gorm:"column:created_by" json:"created_by"`
-	UpdateAt   int64  `gorm:"column:updated_at" json:"updated_at"`
-	UpdateBy   int    `gorm:"column:updated_by" json:"updated_by"`
+	Id         uint            `gorm:"column:id" json:"id"`
+	Name       string          `gorm:"column:name" json:"name"`
+	ProvinceId int             `gorm:"column:province_id" json:"province_id"`
+	CityId     int             `gorm:"column:city_id" json:"city_id"`
+	CountyId   int             `gorm:"column:county_id" json:"county_id"`
+	Status     int             `gorm:"column:status" json:"status"`
+	Type       int             `gorm:"column:type" json:"type"`
+	Tel        string          `gorm:"column:tel" json:"tel"`
+	Fax        string          `gorm:"column:fax" json:"fax"`
+	CreatedAt  int64           `gorm:"column:created_at" json:"created_at"`
+	CreatedBy  int             `gorm:"column:created_by" json:"created_by"`
+	UpdateAt   int64           `gorm:"column:updated_at" json:"updated_at"`
+	UpdateBy   int             `gorm:"column:updated_by" json:"updated_by"`
+	DeletedAt  *gorm.DeletedAt `gorm:"column:deleted_at" sql:"index"  json:"deleted_at"`
 }
 
 // TableName Enterprise's table name
@@ -78,6 +79,14 @@ func (m *EnterpriseModel) FindByIds(id []uint) ([]*Enterprise, error) {
 	return enterprises, nil
 }
 
+func (m *EnterpriseModel) FindUnscopedByIds(id []uint) ([]*Enterprise, error) {
+	enterprises := make([]*Enterprise, 0)
+	if err := m.DB.Where("id in ?", id).Unscoped().Find(&enterprises).Debug().Error; err != nil {
+		return nil, err
+	}
+	return enterprises, nil
+}
+
 func (m *EnterpriseModel) FindByArea(provinceId, cityId, countyId, status int) ([]*Enterprise, error) {
 	enterprises := make([]*Enterprise, 0)
 	tx := m.DB.Where("province_id = ?", provinceId).
@@ -100,4 +109,8 @@ func (m *EnterpriseModel) CountByArea(provinceId, cityId, countyId, status int) 
 		return 0, err
 	}
 	return total, nil
+}
+
+func (m *EnterpriseModel) Deleted(id uint) error {
+	return m.DB.Where("id = ?", id).Delete(&Enterprise{}).Error
 }

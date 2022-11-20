@@ -94,6 +94,7 @@ func initController(g *gin.Engine) *gin.Engine {
 		enter.POST("enterprise", enterCtx.Create)
 		enter.PUT("enterprise", enterCtx.Update)
 		enter.GET("enterprise", enterCtx.Detail)
+		enter.DELETE("enterprise", enterCtx.Deleted)
 		enter.PUT("enterprise/status", enterCtx.UpdateStatus)
 
 		enter.GET("enterprise/waiting/follows", enterCtx.GetWaitingFollowedList)

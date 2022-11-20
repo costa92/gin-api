@@ -24,6 +24,7 @@ type GeListItem struct {
 	EnterpriseName string `json:"enterprise_name"`
 	CreatedTime    string `json:"created_time"`
 	UpdatedTime    string `json:"updated_time"`
+	EnterpriseDel  bool   `json:"enterprise_del"` // true 删除  false 未删除
 }
 type GetListResponse struct {
 	Items         []*GeListItem `json:"items"`
@@ -65,23 +66,37 @@ func (c *EnterpriseContactController) GeList(ctx *gin.Context) {
 		}
 
 		enterpriseModel := model.NewEnterpriseModel(ctx, c.MysqlStorage)
-		enterprises, err := enterpriseModel.FindByIds(enterpriseIds)
+		enterprises, err := enterpriseModel.FindUnscopedByIds(enterpriseIds)
 		if err != nil {
 			util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据错误")
 			return
 		}
-		enterpriseArr := make(map[uint]string)
+		enterpriseArr := make(map[uint]*model.Enterprise)
 		for _, enterprise := range enterprises {
-			enterpriseArr[enterprise.Id] = enterprise.Name
+			enterpriseArr[enterprise.Id] = enterprise
 		}
 
 		for _, item := range ret.Items {
-			items = append(items, &GeListItem{
+			enterprise := enterpriseArr[item.EnterpriseID]
+			var enterpriseName string
+			var enterpriseDel bool
+			if enterprise == nil {
+				enterpriseDel = true
+			} else {
+				enterpriseName = enterprise.Name
+				if enterprise.DeletedAt != nil {
+					enterpriseDel = true
+				}
+			}
+
+			listItem := &GeListItem{
 				EnterpriseContact: item,
 				CreatedTime:       time.Unix(item.CreatedAt, 0).Format(middleware.TimeFieldFormat),
 				UpdatedTime:       time.Unix(item.UpdatedAt, 0).Format(middleware.TimeFieldFormat),
-				EnterpriseName:    enterpriseArr[item.EnterpriseID],
-			})
+				EnterpriseName:    enterpriseName,
+				EnterpriseDel:     enterpriseDel,
+			}
+			items = append(items, listItem)
 		}
 	}
 
