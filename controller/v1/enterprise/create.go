@@ -1,6 +1,8 @@
 package enterprise
 
 import (
+	"fmt"
+
 	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 
@@ -19,6 +21,7 @@ func (c *EnterpriseController) Create(ctx *gin.Context) {
 	validate := validation.DefaultValidator{}
 	err := validate.ValidateStruct(req)
 	if err != nil {
+		fmt.Println(err)
 		util.WriteResponse(ctx, errors.WithCode(code.ErrValidation, err.Error()), nil)
 		return
 	}
@@ -31,5 +34,26 @@ func (c *EnterpriseController) Create(ctx *gin.Context) {
 			"企业添加类型数据错误")
 		return
 	}
+	if len(req.Contacts) > 0 {
+		contactModel := model.NewEnterpriseContactModel(ctx, c.MysqlStorage)
+		createContacts := make([]*model.EnterpriseContact, 0)
+		for _, contact := range req.Contacts {
+			createContacts = append(createContacts, &model.EnterpriseContact{
+				Name:         contact.Name,
+				Mobile:       contact.Mobile,
+				Position:     contact.Position,
+				EnterpriseID: enterprise.Id,
+				Status:       model.ContactStatusNormal,
+			})
+		}
+
+		if len(createContacts) > 0 {
+			if err := contactModel.DB.Create(createContacts).Error; err != nil {
+				util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "修改企业联系人错误")
+				return
+			}
+		}
+	}
+
 	util.WriteSuccessResponse(ctx, "success")
 }

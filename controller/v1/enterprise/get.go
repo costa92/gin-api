@@ -58,6 +58,17 @@ func (c *EnterpriseController) Detail(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询企业联系人错误")
 		return
 	}
-	detail.Contacts = contacts
+	contactItems := make([]*ContactItems, 0)
+	if len(contacts) > 0 {
+		for _, contact := range contacts {
+			contactItems = append(contactItems, &ContactItems{
+				Id:       contact.ID,
+				Name:     contact.Name,
+				Mobile:   contact.Mobile,
+				Position: contact.Position,
+			})
+		}
+	}
+	detail.Contacts = contactItems
 	util.WriteSuccessResponse(ctx, detail)
 }

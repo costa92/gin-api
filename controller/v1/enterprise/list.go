@@ -52,6 +52,7 @@ func (c *EnterpriseController) GetList(ctx *gin.Context) {
 	if req.Name != "" {
 		tx = tx.Where("name like ?", "%"+req.Name+"%")
 	}
+
 	if err := tx.Count(&ret.TotalCount).Error; err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询数据错误")
 		return

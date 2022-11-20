@@ -14,15 +14,21 @@ func NewEnterpriseController(db *gorm.DB) *EnterpriseController {
 	return &EnterpriseController{MysqlStorage: db}
 }
 
+type ContactItems struct {
+	Id       int32  `json:"id" form:"id"`
+	Name     string `json:"name" form:"name"`
+	Mobile   string `json:"mobile" form:"mobile"`
+	Position string `json:"position" form:"position"`
+}
 type CreateRequest struct {
-	Name       string `json:"name" from:"name"  validate:"required"`
-	ProvinceId int    `json:"province_id" from:"province_id"  validate:"required"`
-	CityId     int    `json:"city_id" from:"city_id"  validate:"required"`
-	CountyId   int    `json:"county_id" from:"county_id"  validate:"required"`
-	Status     int    `json:"status" from:"status"  validate:"required"`
-	Type       int    `json:"type" from:"type"  validate:"required"`
-	Tel        string `json:"tel" from:"tel"  validate:"required"`
-	Fax        string `json:"fax" from:"fax"`
+	Name       string          `json:"name" from:"name"  validate:"required"`
+	ProvinceId int             `json:"province_id" from:"province_id"  validate:"required"`
+	CityId     int             `json:"city_id" from:"city_id"  validate:"required"`
+	CountyId   int             `json:"county_id" from:"county_id"  validate:"required"`
+	Type       int             `json:"type" from:"type"  validate:"required"`
+	Tel        string          `json:"tel" from:"tel"  validate:"required"`
+	Fax        string          `json:"fax" from:"fax"`
+	Contacts   []*ContactItems `json:"contacts" from:"contacts"`
 }
 
 func (c *EnterpriseController) saveParams(enterprise *model.Enterprise, req *CreateRequest) {
@@ -30,7 +36,6 @@ func (c *EnterpriseController) saveParams(enterprise *model.Enterprise, req *Cre
 	enterprise.ProvinceId = req.ProvinceId
 	enterprise.CityId = req.CityId
 	enterprise.CountyId = req.CountyId
-	enterprise.Status = req.Status
 	enterprise.Type = req.Type
 	enterprise.Tel = req.Tel
 	enterprise.Fax = req.Fax
@@ -47,10 +52,10 @@ type DetailRequest struct {
 
 type DetailResponse struct {
 	*model.Enterprise
-	AreaId   []int                      `json:"parentCode"`
-	AreaName []string                   `json:"area_name"`
-	TypeName string                     `json:"type_name"`
-	Contacts []*model.EnterpriseContact `json:"contacts"`
+	AreaId   []int           `json:"parentCode"`
+	AreaName []string        `json:"area_name"`
+	TypeName string          `json:"type_name"`
+	Contacts []*ContactItems `json:"contacts"`
 }
 
 type UpdateStatusRequest struct {

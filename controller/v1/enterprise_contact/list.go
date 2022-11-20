@@ -39,7 +39,7 @@ func (c *EnterpriseContactController) GeList(ctx *gin.Context) {
 
 	ret := &model.EnterpriseContactList{}
 	contactModel := model.NewEnterpriseContactModel(ctx, c.MysqlStorage)
-	tx := contactModel.DB
+	tx := contactModel.DB.Where("status = ?", model.ContactStatusNormal)
 
 	if req.Name != "" {
 		tx = tx.Where("name like ?", "%"+req.Name+"%")

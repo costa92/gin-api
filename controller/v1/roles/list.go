@@ -1,11 +1,12 @@
 package roles
 
 import (
-	"github.com/costa92/errors"
-	"github.com/costa92/go-web/internal/middleware"
-	"github.com/gin-gonic/gin"
 	"time"
 
+	"github.com/costa92/errors"
+	"github.com/gin-gonic/gin"
+
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
 	"github.com/costa92/go-web/pkg/meta"
