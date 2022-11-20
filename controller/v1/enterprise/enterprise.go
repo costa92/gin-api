@@ -47,9 +47,10 @@ type DetailRequest struct {
 
 type DetailResponse struct {
 	*model.Enterprise
-	AreaId   []int    `json:"parentCode"`
-	AreaName []string `json:"area_name"`
-	TypeName string   `json:"type_name"`
+	AreaId   []int                      `json:"parentCode"`
+	AreaName []string                   `json:"area_name"`
+	TypeName string                     `json:"type_name"`
+	Contacts []*model.EnterpriseContact `json:"contacts"`
 }
 
 type UpdateStatusRequest struct {

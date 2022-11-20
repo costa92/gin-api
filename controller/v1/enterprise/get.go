@@ -51,5 +51,13 @@ func (c *EnterpriseController) Detail(ctx *gin.Context) {
 	for _, area := range areas {
 		detail.AreaName = append(detail.AreaName, area.Name)
 	}
+
+	contactModel := model.NewEnterpriseContactModel(ctx, c.MysqlStorage)
+	contacts, err := contactModel.FindByEnterpriseId(int(detail.Id))
+	if err != nil {
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询企业联系人错误")
+		return
+	}
+	detail.Contacts = contacts
 	util.WriteSuccessResponse(ctx, detail)
 }
