@@ -37,10 +37,10 @@ func (c *DistributeController) SingleCreate(ctx *gin.Context) {
 		return
 	}
 	if enterpriseInfo.Status != 1 {
-		util.WriteResponse(ctx, errors.WithCode(code.ErrValidation, "该数据已经处理"), "数据已经分发")
+		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, "该数据已经处理"), "数据已经分发")
 		return
 	}
-	distributeModel := model.NewDistributeModel(ctx, tx)
+	distributeModel := model.NewDistributeModel(ctx, c.MysqlStorage)
 	distributeInfo, err := distributeModel.FirstByEnterpriseID(req.EnterpriseId)
 	if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "该数据已经存在")

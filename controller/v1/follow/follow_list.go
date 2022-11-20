@@ -89,20 +89,26 @@ func (c *FollowController) GetFollowList(ctx *gin.Context) {
 
 		for _, item := range ret.Items {
 			enterpriseItem := enterpriseMap[item.EnterpriseID]
-			areaName := fmt.Sprintf("%s%s%s", areas[enterpriseItem.ProvinceId], areas[enterpriseItem.CityId], areas[enterpriseItem.CountyId])
 			followItem := &FollowItem{
-				Distribute:     item,
-				DistributeId:   item.ID,
-				Enterprise:     enterpriseMap[item.EnterpriseID],
-				EnterpriseType: typeAll[enterpriseMap[item.EnterpriseID].Type],
-				AreaName:       areaName,
+				Distribute:   item,
+				DistributeId: item.ID,
+				Enterprise:   enterpriseMap[item.EnterpriseID],
 			}
-			if enterpriseItem.CreatedAt > 0 {
-				followItem.CreatedTime = time.Unix(item.CreatedAt, 0).Format(middleware.TimeFieldFormat)
+			var areaName string
+			var enterpriseType int
+			if enterpriseItem != nil {
+				areaName = fmt.Sprintf("%s%s%s", areas[enterpriseItem.ProvinceId], areas[enterpriseItem.CityId], areas[enterpriseItem.CountyId])
+				enterpriseType = enterpriseMap[item.EnterpriseID].Type
+				if enterpriseItem.CreatedAt > 0 {
+					followItem.CreatedTime = time.Unix(item.CreatedAt, 0).Format(middleware.TimeFieldFormat)
+				}
+				if enterpriseItem.UpdateAt > 0 {
+					followItem.UpdatedTime = time.Unix(item.UpdatedAt, 0).Format(middleware.TimeFieldFormat)
+				}
+				followItem.EnterpriseType = typeAll[enterpriseType]
+				followItem.AreaName = areaName
 			}
-			if enterpriseItem.UpdateAt > 0 {
-				followItem.UpdatedTime = time.Unix(item.UpdatedAt, 0).Format(middleware.TimeFieldFormat)
-			}
+
 			items = append(items, followItem)
 		}
 	}
