@@ -23,7 +23,7 @@ func (c *EnterpriseContactController) Create(ctx *gin.Context) {
 		return
 	}
 	contact := &model.EnterpriseContact{}
-
+	req.Status = 1
 	c.saveParams(contact, &req)
 	contactModel := model.NewEnterpriseContactModel(ctx, c.MysqlStorage)
 	if err := contactModel.Save(contact); err != nil {

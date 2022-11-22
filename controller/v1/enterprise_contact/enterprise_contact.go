@@ -22,6 +22,7 @@ type CreateRequest struct {
 	Mobile       string   `json:"mobile" form:"mobile" validate:"required"`
 	Position     string   `json:"position" form:"position"`
 	MultiMobile  []string `json:"[]multi_mobile" form:"[]multi_mobile"`
+	Status       int      `json:"status"`
 }
 
 func (c *EnterpriseContactController) saveParams(contact *model.EnterpriseContact, req *CreateRequest) {
@@ -29,7 +30,7 @@ func (c *EnterpriseContactController) saveParams(contact *model.EnterpriseContac
 	contact.EnterpriseID = req.EnterpriseId
 	contact.Mobile = req.Mobile
 	contact.Position = req.Position
-
+	contact.Status = req.Status
 	var multiMobile string
 	if len(req.MultiMobile) > 0 {
 		multiMobileByte, _ := json.Marshal(req.MultiMobile)

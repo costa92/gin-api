@@ -2,6 +2,7 @@ package internal
 
 import (
 	"github.com/costa92/errors"
+	"github.com/costa92/go-web/controller/v1/follow_record"
 	"github.com/gin-gonic/gin"
 
 	"github.com/costa92/go-web/controller/v1"
@@ -55,6 +56,7 @@ func initController(g *gin.Engine) *gin.Engine {
 	enterContactCtx := enterprise_contact.NewEnterpriseContactController(db.MysqlStorage)
 	distributeCtx := distribute.NewDistributeController(db.MysqlStorage)
 	followCtx := follow.NewFollowController(db.MysqlStorage)
+	followRecordCtx := follow_record.NewFollowRecordController(db.MysqlStorage)
 
 	api.GET("/getUserInfo", authCtx.GetUserInfo)
 	api.GET("/getMenuList", menuCtx.GetMenuList)
@@ -125,6 +127,8 @@ func initController(g *gin.Engine) *gin.Engine {
 	followR := api.Group("/")
 	{
 		followR.GET("follows", followCtx.GetFollowList)
+
+		followR.POST("follow/record", followRecordCtx.Create)
 	}
 
 	return g
