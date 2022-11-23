@@ -129,6 +129,8 @@ func initController(g *gin.Engine) *gin.Engine {
 		followR.GET("follows", followCtx.GetFollowList)
 
 		followR.POST("follow/record", followRecordCtx.Create)
+		followR.GET("follow/records", followRecordCtx.FollowRecords)
+
 	}
 
 	return g

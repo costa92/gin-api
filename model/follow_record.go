@@ -42,6 +42,15 @@ func NewFollowRecordModel(ctx context.Context, db *gorm.DB) *FollowRecordModel {
 	}
 }
 
+func (m *FollowRecordModel) FindByEnterpriseId(enterpriseId int64) ([]*FollowRecord, error) {
+	var records []*FollowRecord
+	tx := m.DB.Where("enterprise_id = ?", enterpriseId).Order("record_id desc")
+	if err := tx.Find(&records).Error; err != nil {
+		return nil, err
+	}
+	return records, nil
+}
+
 func (m *FollowRecordModel) Save(ctx context.Context, record *FollowRecord) error {
 	tx := m.DB
 	currTime := time.Now().Unix()

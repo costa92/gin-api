@@ -28,3 +28,8 @@ func (m *FollowRecordController) SaveParams(record *model.FollowRecord, req *Cre
 	record.Status = 2
 	return record
 }
+
+type FollowRecordRequest struct {
+	model.PageRequest
+	EnterpriseId int64 `json:"enterprise_id,omitempty" form:"enterprise_id" query:"enterprise_id"`
+}

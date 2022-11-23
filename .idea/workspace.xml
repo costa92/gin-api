@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/v1/follow_record/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/follow_record.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/v1/follow_record/get_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/enterprise_contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise_contact/enterprise_contact.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/follow_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/follow_record.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
