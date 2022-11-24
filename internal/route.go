@@ -2,7 +2,6 @@ package internal
 
 import (
 	"github.com/costa92/errors"
-	"github.com/costa92/go-web/controller/v1/follow_record"
 	"github.com/gin-gonic/gin"
 
 	"github.com/costa92/go-web/controller/v1"
@@ -12,6 +11,7 @@ import (
 	"github.com/costa92/go-web/controller/v1/enterprise_contact"
 	"github.com/costa92/go-web/controller/v1/enterprise_type"
 	"github.com/costa92/go-web/controller/v1/follow"
+	"github.com/costa92/go-web/controller/v1/follow_record"
 	"github.com/costa92/go-web/controller/v1/menus"
 	"github.com/costa92/go-web/controller/v1/roles"
 	"github.com/costa92/go-web/controller/v1/users"

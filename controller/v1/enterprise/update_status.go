@@ -4,6 +4,7 @@ import (
 	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/costa92/go-web/internal/validation"
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
@@ -28,8 +29,9 @@ func (c *EnterpriseController) UpdateStatus(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询企业数据错误")
 		return
 	}
-
+	currUserId := middleware.GetAuthUserId(ctx)
 	enterprise.Status = req.Status
+	enterprise.UpdateBy = currUserId
 	if err := enterpriseModel.Save(enterprise); err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "更新企业状态错误")
 		return

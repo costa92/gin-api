@@ -77,7 +77,11 @@ func newJWTAuth() middleware.AuthStrategy {
 		},
 		IdentityHandler: func(c *gin.Context) interface{} {
 			claims := jwt.ExtractClaims(c)
-			return claims[jwt.IdentityKey]
+			userIdFloat64 := claims[middleware.UserIdKey].(float64)
+			return &middleware.AuthUser{
+				Username: claims[jwt.IdentityKey].(string),
+				UserId:   int(userIdFloat64),
+			}
 		},
 		IdentityKey:   middleware.UsernameKey,
 		Authorizator:  authorizator(),
@@ -125,6 +129,7 @@ func authenticator() func(c *gin.Context) (interface{}, error) {
 			logger.Errorw("get user information failed", "err", err)
 			return "", jwt.ErrFailedAuthentication
 		}
+		c.Set(middleware.UsernameKey, user.Username)
 		return user, nil
 	}
 }
@@ -135,13 +140,11 @@ func parseWithHeader(c *gin.Context) (LoginInfo, error) {
 		logger.Errorw("get basic string from Authorization header failed")
 		return LoginInfo{}, jwt.ErrFailedAuthentication
 	}
-
 	payload, err := base64.StdEncoding.DecodeString(author[1])
 	if err != nil {
 		logger.Errorw("decode basic string", "err", err)
 		return LoginInfo{}, jwt.ErrFailedAuthentication
 	}
-
 	pair := strings.SplitN(string(payload), ":", 2)
 	if len(pair) != 2 {
 		logger.Errorw("parse payload failed")
@@ -182,8 +185,9 @@ func loginResponse() func(c *gin.Context, code int, token string, expire time.Ti
 			"code":    code,
 			"message": "success",
 			"result": map[string]string{
-				"token":  token,
-				"expire": expire.Format(time.RFC3339),
+				"token":    token,
+				"expire":   expire.Format(time.RFC3339),
+				"nickname": c.GetString(middleware.UsernameKey),
 			},
 		})
 	}
@@ -191,7 +195,7 @@ func loginResponse() func(c *gin.Context, code int, token string, expire time.Ti
 
 func authorizator() func(data interface{}, c *gin.Context) bool {
 	return func(data interface{}, c *gin.Context) bool {
-		if v, ok := data.(string); ok {
+		if v, ok := data.(*middleware.AuthUser); ok {
 			logger.Infof("user `%s` is authenticated.", v)
 			return true
 		}
@@ -205,7 +209,6 @@ func payloadFunc() func(data interface{}) jwt.MapClaims {
 			"iss": APIServerIssuer,
 			"aud": APIServerAudience,
 		}
-
 		if u, ok := data.(*model.User); ok {
 			claims[jwt.IdentityKey] = u.Username
 			claims[middleware.UserIdKey] = u.ID

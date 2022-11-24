@@ -2,9 +2,11 @@ package model
 
 import (
 	"context"
-	"github.com/costa92/go-web/pkg/meta"
-	"gorm.io/gorm"
 	"time"
+
+	"gorm.io/gorm"
+
+	"github.com/costa92/go-web/pkg/meta"
 )
 
 const TableNameFollowRecord = "follow_record"
@@ -15,7 +17,7 @@ type FollowRecord struct {
 	EnterpriseID int32  `gorm:"column:enterprise_id;not null" json:"enterprise_id"`              // 企业编号
 	Message      string `gorm:"column:message;not null" json:"message"`                          // 提交内容
 	Status       int32  `gorm:"column:status;not null" json:"status"`                            // 跟进的状态
-	UserID       int32  `gorm:"column:user_id;not null" json:"user_id"`                          // 跟进人
+	UserID       int    `gorm:"column:user_id;not null" json:"user_id"`                          // 跟进人
 	ContactID    int32  `gorm:"column:contact_id;not null" json:"contact_id"`                    // 企业联系人
 	UpdatedAt    int64  `gorm:"column:updated_at;not null" json:"updated_at"`                    // 修改时间
 	UpdatedBy    int32  `gorm:"column:updated_by;not null" json:"updated_by"`                    // 修改者

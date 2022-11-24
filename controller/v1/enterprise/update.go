@@ -1,11 +1,10 @@
 package enterprise
 
 import (
-	"fmt"
-
 	"github.com/costa92/errors"
 	"github.com/gin-gonic/gin"
 
+	"github.com/costa92/go-web/internal/middleware"
 	"github.com/costa92/go-web/internal/validation"
 	"github.com/costa92/go-web/model"
 	"github.com/costa92/go-web/pkg/code"
@@ -32,8 +31,10 @@ func (c *EnterpriseController) Update(ctx *gin.Context) {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()), "查询企业数据错误")
 		return
 	}
-
+	currUserId := middleware.GetAuthUserId(ctx)
 	c.saveParams(enterprise, &req.CreateRequest)
+	enterprise.UpdateBy = currUserId
+
 	if err := enterpriseModel.Save(enterprise); err != nil {
 		util.WriteResponse(ctx, errors.WithCode(code.ErrDatabase, err.Error()),
 			"企业修改类型数据错误")
@@ -63,7 +64,6 @@ func (c *EnterpriseController) Update(ctx *gin.Context) {
 			if ok := updateIds[contact.ID]; ok == nil {
 				item := contactItems[contact.ID]
 				item.Status = model.ContactStatusFail
-				fmt.Println(contact.ID)
 				updateContacts = append(updateContacts, item)
 			}
 		}

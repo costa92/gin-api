@@ -1,7 +1,11 @@
 package follow_record
 
 import (
+	"time"
+
 	"github.com/costa92/errors"
+	"github.com/gin-gonic/gin"
+
 	"github.com/costa92/go-web/internal/middleware"
 	"github.com/costa92/go-web/internal/validation"
 	"github.com/costa92/go-web/model"
@@ -9,8 +13,6 @@ import (
 	"github.com/costa92/go-web/pkg/meta"
 	"github.com/costa92/go-web/pkg/util"
 	"github.com/costa92/go-web/pkg/util/gormutil"
-	"github.com/gin-gonic/gin"
-	"time"
 )
 
 type FollowRecordItem struct {

@@ -178,8 +178,6 @@ func (t andTerm) Empty() bool {
 }
 
 func (t andTerm) RequiresExactMatch(field string) (string, bool) {
-	fmt.Println(t)
-	fmt.Println(1232)
 	if t == nil || len([]Selector(t)) == 0 {
 		return "", false
 	}

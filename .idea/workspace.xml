@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/v1/follow_record/get_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/follow_record/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/enterprise_contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/enterprise_contact.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/follow_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/follow_record.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/fields/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/fields/selector.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,11 +189,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/auth.go</url>
-          <line>102</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/pkg/logger/logs_test.go</url>
           <line>31</line>
           <option name="timeStamp" value="5" />
@@ -211,6 +212,31 @@
           <url>file://$PROJECT_DIR$/controller/v1/follow/follow_list.go</url>
           <line>99</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/auth/basic.go</url>
+          <line>38</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/auth/jwt.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/auth/jwt.go</url>
+          <line>18</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/context.go</url>
+          <line>14</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/middleware/context.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

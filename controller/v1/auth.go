@@ -40,7 +40,8 @@ func (a *AuthController) GetUserInfo(ctx *gin.Context) {
 		token = author[1]
 	}
 	userModel := model.NewUserModel(ctx, a.MysqlStorage)
-	userName := ctx.GetString(middleware.UsernameKey)
+	// 中间获取授权用户信息
+	userName := middleware.GetAuthUserName(ctx)
 	user, err := userModel.FirstByName(userName)
 	if err != nil {
 		logger.Errorw("GetUserInfo FirstByName failed", middleware.UsernameKey, userName, "err", err)

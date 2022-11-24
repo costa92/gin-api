@@ -27,9 +27,9 @@ type EnterpriseContact struct {
 	Position     string `gorm:"column:position;not null" json:"position"`           // 职位
 	Status       int    `gorm:"column:status;" json:"status"`                       // 状态 1 正常 2 失效
 	UpdatedAt    int64  `gorm:"column:updated_at;not null" json:"updated_at"`       // 修改时间
-	UpdatedBy    int32  `gorm:"column:updated_by;not null" json:"updated_by"`       // 修改者
+	UpdatedBy    int    `gorm:"column:updated_by;not null" json:"updated_by"`       // 修改者
 	CreatedAt    int64  `gorm:"column:created_at;not null" json:"created_at"`       // 添加时间
-	CreatedBy    int32  `gorm:"column:created_by;not null" json:"created_by"`       // 添加者
+	CreatedBy    int    `gorm:"column:created_by;not null" json:"created_by"`       // 添加者
 }
 
 // TableName EnterpriseContact's table name
