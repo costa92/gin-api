@@ -6,16 +6,45 @@
   <component name="ChangeListManager">
     <list default="true" id="cacd569f-ffd0-403e-b263-3c983a9f9d0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/update.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/v1/follow_record/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/areas/area.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/areas/list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/distribute/area_create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/distribute/distribute.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/distribute/list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/distribute/single_create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/del.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/enterprise.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/get.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/update_status.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise/waiting_follow.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/enterprise_contact.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/get.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/get_list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_contact/update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/enterprise_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/get.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/options.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/enterprise_type/update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow/follow.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow/follow_list.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/follow_record.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/v1/follow_record/get_list.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/enterprise_contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/enterprise_contact.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/follow_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/follow_record.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/fields/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/fields/selector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/area.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/distribute.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/enterprise.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/enterprise_contact.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/enterprise_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/follow_record.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +229,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/internal/route.go</url>
-          <line>44</line>
+          <line>32</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">

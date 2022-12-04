@@ -130,6 +130,7 @@ func authenticator() func(c *gin.Context) (interface{}, error) {
 			return "", jwt.ErrFailedAuthentication
 		}
 		c.Set(middleware.UsernameKey, user.Username)
+		c.Set(middleware.UserIdKey, user.ID)
 		return user, nil
 	}
 }
@@ -181,13 +182,15 @@ func refreshResponse() func(c *gin.Context, code int, token string, expire time.
 
 func loginResponse() func(c *gin.Context, code int, token string, expire time.Time) {
 	return func(c *gin.Context, code int, token string, expire time.Time) {
+		userId, _ := c.Get(middleware.UserIdKey)
 		c.JSON(http.StatusOK, gin.H{
 			"code":    code,
 			"message": "success",
-			"result": map[string]string{
+			"result": map[string]interface{}{
 				"token":    token,
 				"expire":   expire.Format(time.RFC3339),
 				"nickname": c.GetString(middleware.UsernameKey),
+				"user_id":  userId,
 			},
 		})
 	}
@@ -196,7 +199,7 @@ func loginResponse() func(c *gin.Context, code int, token string, expire time.Ti
 func authorizator() func(data interface{}, c *gin.Context) bool {
 	return func(data interface{}, c *gin.Context) bool {
 		if v, ok := data.(*middleware.AuthUser); ok {
-			logger.Infof("user `%s` is authenticated.", v)
+			logger.Infof("user_id: `%d`, username: `%s` is authenticated.", v.UserId, v.Username)
 			return true
 		}
 		return false
